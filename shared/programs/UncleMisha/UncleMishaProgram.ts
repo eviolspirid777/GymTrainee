@@ -1,0 +1,453 @@
+import { TrainingProgram } from "@/types/TrainingProgram/TrainingProgram";
+
+export const uncleMishaTrainingProgram: TrainingProgram = {
+  id: "Dyadya_Misha",
+  name: "Программа на жим лежа (дядя Миша)",
+  trainingSets: [
+    {
+      trainingNumber: 1,
+      exercises: [
+        {
+          name: "Жим Лежа (65 %)",
+          reps: 10,
+          count: 3,
+        },
+        {
+          name: "Сведения сидя",
+          reps: 10,
+          count: 3,
+        },
+        {
+          name: "Тяга верхнего блока",
+          reps: 10,
+          count: 4,
+        },
+        {
+          name: "Хаммер",
+          reps: [9, 9, 8, 8, 6],
+          count: 4,
+        },
+        {
+          name: "Тачка (подтягивания в тренажере)",
+          reps: "max",
+          count: 4,
+        },
+        {
+          name: "Поднятие штанги на бицепс",
+          reps: [12, 10, 10, 8],
+          count: 4,
+        },
+      ],
+    },
+    {
+      trainingNumber: 2,
+      exercises: [
+        {
+          name: "Жим Лежа (75 %)",
+          reps: 5,
+          count: 6,
+        },
+        {
+          name: "Разводка 35",
+          reps: 12,
+          count: 2,
+        },
+        {
+          name: "Жим ногами",
+          reps: 12,
+          count: 4,
+        },
+        {
+          name: "Сгибания ног лежа",
+          reps: 10,
+          count: 3,
+        },
+        {
+          name: "Бицепс со штангой",
+          reps: [12, 10, 8, 8],
+          count: 4,
+        },
+        {
+          name: "Тачка (подтягивания в тренажере)",
+          reps: 12,
+          count: 4,
+        },
+      ],
+    },
+    {
+      trainingNumber: 3,
+      exercises: [
+        {
+          name: "Жим Лежа (85 %)",
+          reps: 3,
+          count: 10,
+        },
+        {
+          name: "Сведения сидя",
+          count: 2,
+          reps: 12,
+        },
+        {
+          name: "Жим гантелей сидя",
+          count: 4,
+          reps: [10, 8, 8, 8],
+        },
+        {
+          name: "Хаммер",
+          count: 5,
+          reps: 10,
+        },
+        {
+          name: "Тяга нижнего блока обратным хватом",
+          count: 4,
+          reps: 10,
+        },
+        {
+          name: "Бицепс со штангой",
+          count: 5,
+          reps: 10,
+        },
+      ],
+    },
+    {
+      trainingNumber: 4,
+      exercises: [
+        {
+          name: "Жим Лежа (65% + 5кг)",
+          reps: 3,
+          count: 10,
+        },
+        {
+          name: "Разводка (ровно)",
+          count: 3,
+          reps: 10,
+        },
+        {
+          name: "Приседания со штангой",
+          count: 4,
+          reps: 15,
+        },
+        {
+          name: "Разводка ног сидя",
+          count: 4,
+          reps: 10,
+        },
+        {
+          name: "Разводка гантелей",
+          count: 4,
+          reps: 8,
+        },
+        {
+          name: "Разводка гантелей в наклоне",
+          count: 4,
+          reps: 10,
+        },
+      ],
+    },
+    {
+      trainingNumber: 5,
+      exercises: [
+        {
+          name: "Жим Лежа (75% + 5кг)",
+          reps: 6,
+          count: 5,
+        },
+        {
+          name: "Сведения сидя",
+          count: 3,
+          reps: [10, 10, 8, 8],
+        },
+        {
+          name: "Тяга штанги в наклоне",
+          count: 4,
+          reps: [10, 10, 8, 8],
+        },
+        {
+          name: "Тяга нижнего блока обратным хватом",
+          count: 4,
+          reps: [12, 12, 10, 10],
+        },
+        {
+          name: "Тачка (подтягивания в тренажере)",
+          count: 4,
+          reps: "max",
+        },
+        {
+          name: "Бицепс",
+          count: 5,
+          reps: [10, 8, 8, 6, 6],
+        },
+      ],
+    },
+    {
+      trainingNumber: 6,
+      exercises: [
+        {
+          name: "Жим Лежа (85% + 5кг)",
+          count: 10,
+          reps: 3,
+        },
+        {
+          name: "Разводка 35",
+          count: 2,
+          reps: [10, 8],
+        },
+        {
+          name: "Приседания со штангой",
+          count: 4,
+          reps: [10, 8, 6, 4],
+        },
+        {
+          name: "Жим ногами",
+          count: 3,
+          reps: 8,
+        },
+        {
+          name: "Сгибание ног лежа",
+          count: 4,
+          reps: 12,
+        },
+        {
+          name: "Жим штанги сидя",
+          count: 4,
+          reps: 12,
+        },
+      ],
+    },
+    {
+      trainingNumber: 7,
+      exercises: [
+        {
+          name: "Жим Лежа (65% + 10кг)",
+          count: 3,
+          reps: 10,
+        },
+        {
+          name: "Сведения сидя",
+          count: 3,
+          reps: 12,
+        },
+        {
+          name: "Тяга верхнего блока",
+          count: 4,
+          reps: 12,
+        },
+        {
+          name: "Хаммер",
+          count: 3,
+          reps: 10,
+        },
+        {
+          name: "Тяга нижнего блока обратным хватом",
+          count: 3,
+          reps: 10,
+        },
+        {
+          name: "Сгибание рук с гантелями",
+          count: 5,
+          reps: [10, 8, 8, 6, 6],
+        },
+      ],
+    },
+    {
+      trainingNumber: 8,
+      exercises: [
+        {
+          name: "Жим Лежа (75% + 10кг)",
+          count: 6,
+          reps: 5,
+        },
+        {
+          name: "Разводка (ровно)",
+          count: 3,
+          reps: 8,
+        },
+        {
+          name: "Приседания со штангой",
+          count: 5,
+          reps: 12,
+        },
+        {
+          name: "c/c Жим + Сгибания лежа",
+          count: 3,
+          reps: 12,
+        },
+        {
+          name: "Разводка гантелей стоя",
+          count: 3,
+          reps: 10,
+        },
+      ],
+    },
+    {
+      trainingNumber: 9,
+      exercises: [
+        {
+          name: "Жим Лежа (85% + 10кг)",
+          count: 10,
+          reps: 3,
+        },
+        {
+          name: "Сведения сидя",
+          count: 2,
+          reps: 12,
+        },
+        {
+          name: "Тяга штанги в наклоне",
+          count: 4,
+          reps: 8,
+        },
+        {
+          name: "Тачка (подтягивания в тренажере)",
+          count: 4,
+          reps: 10,
+        },
+        {
+          name: "Тяга гантели к поясу в наклоне",
+          count: 3,
+          reps: 6,
+        },
+        {
+          name: "Поднятие штанги на бицепс обратным хватом",
+          count: 4,
+          reps: [10, 10, 8, 8],
+        },
+        {
+          name: "Молотоки на бицепс",
+          count: 3,
+          reps: "max",
+        },
+      ],
+    },
+    {
+      trainingNumber: 10,
+      exercises: [
+        {
+          name: "Жим Лежа (легкий)",
+          count: 3,
+          reps: 10,
+        },
+        {
+          name: "Разводка (ровно)",
+          count: 3,
+          reps: 12,
+        },
+        {
+          name: "Фронтальный присед",
+          count: 4,
+          reps: 8,
+        },
+        {
+          name: "Румынская тяга",
+          count: 3,
+          reps: 10,
+        },
+        {
+          name: "Болгарские сплит-приседы",
+          count: 3,
+          reps: "max",
+        },
+        {
+          name: "21 на бицепс",
+          count: 3,
+          reps: 21,
+        },
+        {
+          name: "Сгибание рук с гантелями",
+          count: 4,
+          reps: "max",
+        },
+      ],
+    },
+    {
+      trainingNumber: 11,
+      exercises: [
+        {
+          name: "Жим Лежа (70%)",
+          count: 4,
+          reps: 4,
+        },
+        {
+          name: "Сведение сидя",
+          count: 2,
+          reps: 15,
+        },
+        {
+          name: "Становая тяга",
+          count: 4,
+          reps: 10,
+        },
+        {
+          name: "Тяга верхнего блока",
+          count: 5,
+          reps: 10,
+        },
+        {
+          name: "Тяга нижнего блока",
+          count: 5,
+          reps: 10,
+        },
+        {
+          name: "Подтягивания",
+          count: 3,
+          reps: "max",
+        },
+        {
+          name: "Бицепс со штангой средним хватом стоя",
+          count: 4,
+          reps: 10,
+        },
+        {
+          name: "Бицепс на скамье Скотта со штангой",
+          count: 4,
+          reps: [12, 12, 10, 10],
+        },
+      ],
+    },
+    {
+      trainingNumber: 12,
+      exercises: [
+        {
+          name: "Жим Лежа (50%)",
+          count: 1,
+          reps: 8,
+        },
+        {
+          name: "Жим Лежа (60%)",
+          count: 1,
+          reps: 5,
+        },
+        {
+          name: "Жим Лежа (70%)",
+          count: 1,
+          reps: 4,
+        },
+        {
+          name: "Жим Лежа (80%)",
+          count: 1,
+          reps: 3,
+        },
+        {
+          name: "Жим Лежа (90%)",
+          count: 1,
+          reps: 2,
+        },
+        {
+          name: "Жим Лежа (100%)",
+          count: 1,
+          reps: 1,
+        },
+        {
+          name: "Жим Лежа (105%)",
+          count: 1,
+          reps: 1,
+        },
+        {
+          name: "Сведения сидя",
+          count: 3,
+          reps: 10,
+        },
+      ],
+    },
+  ],
+};
