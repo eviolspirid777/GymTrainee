@@ -1,4 +1,5 @@
 import { Header } from "@/layout/base/Header/Header";
+import { Routes } from "@/layout/base/Routes/Routes";
 import { COLORS } from "@/shared/colors/colors";
 import { StyleSheet, View } from "react-native";
 
@@ -6,6 +7,7 @@ export default function Index() {
   return (
     <View style={styles.main}>
       <Header />
+      <Routes />
     </View>
   );
 }

@@ -1,13 +1,11 @@
 import { COLORS } from "@/shared/colors/colors";
 import { StyledText } from "@/shared/components/StyledText";
 import { StyleSheet, View } from "react-native";
-import { Routes } from "../Routes/Routes";
 
 export const Header = () => {
   return (
     <View style={styles.container}>
       <StyledText label="Gym Trainee" variant="header" style={styles.header} />
-      <Routes />
     </View>
   );
 };

@@ -12,7 +12,11 @@ const Index = () => {
 
   return (
     <View style={styles.main}>
-      <StyledText label={uncleMishaTrainingProgram.name} variant="header" />
+      <StyledText
+        label={uncleMishaTrainingProgram.name}
+        variant="header"
+        style={styles.header}
+      />
       <FlatList
         style={styles.list}
         data={uncleMishaTrainingProgram.trainingSets}
@@ -26,8 +30,13 @@ const Index = () => {
 export default Index;
 
 const styles = StyleSheet.create({
+  header: {
+    textAlign: "center",
+    paddingInline: 10,
+  },
   main: {
-    paddingInline: 20,
+    paddingTop: 60,
+    paddingBottom: 20,
     flexDirection: "column",
     width: "100%",
     flex: 1,
@@ -36,6 +45,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.PRIMARY_COLOR,
   },
   list: {
-    flexDirection: "row",
+    flexDirection: "column",
+    flex: 1,
   },
 });

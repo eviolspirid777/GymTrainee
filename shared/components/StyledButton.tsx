@@ -55,6 +55,7 @@ export const StyledButton: FC<StyledButtonProps> = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
+    alignItems: "flex-end",
     gap: 5,
     padding: 15,
   },
