@@ -11,6 +11,7 @@ export type TrainingSet = {
 
 export type Exercise = {
   name: string;
+  weight?: (maxWeight: number) => void | number;
   //Подходы
   count: number;
   //Повторения

@@ -4,16 +4,12 @@ import { View } from "react-native";
 
 type RepeatComponentProps = {
   repeat: number;
-  index: number;
 };
 
-export const RepeatComponent: FC<RepeatComponentProps> = ({
-  repeat,
-  index,
-}) => {
+export const RepeatComponent: FC<RepeatComponentProps> = ({ repeat }) => {
   return (
     <View>
-      <StyledText label={index !== 0 ? `${repeat},` : repeat.toString()} />
+      <StyledText label={repeat.toString()} />
     </View>
   );
 };

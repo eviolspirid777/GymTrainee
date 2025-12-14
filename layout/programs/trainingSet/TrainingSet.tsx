@@ -18,11 +18,15 @@ export const TrainingSetComponent: FC<TrainingSetProps> = ({ trainingSet }) => {
 
   return (
     <View style={styles.container}>
-      <StyledText label={`Тренировка ${trainingSet.trainingNumber}`} />
+      <StyledText
+        label={`Тренировка ${trainingSet.trainingNumber}:`}
+        style={styles.header}
+        variant="subtitle"
+      />
       <FlatList
         style={styles.list}
         data={trainingSet.exercises}
-        keyExtractor={(set) => set.name}
+        keyExtractor={(_, index) => index.toString()}
         renderItem={renderExercise}
       />
     </View>
@@ -30,10 +34,16 @@ export const TrainingSetComponent: FC<TrainingSetProps> = ({ trainingSet }) => {
 };
 
 const styles = StyleSheet.create({
+  header: {
+    width: "100%",
+    textAlign: "center",
+    marginBottom: 20,
+  },
   container: {
     width: "100%",
     alignItems: "flex-start",
     justifyContent: "flex-start",
+    flex: 1,
   },
   list: { alignSelf: "center" },
 });

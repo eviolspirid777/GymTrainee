@@ -9,11 +9,13 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62,5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 3,
           reps: 8,
         },
         {
           name: "Жим лежа с паузой (67,5%)",
+          weight: (maxWeight) => maxWeight * 0.675,
           count: 1,
           reps: 1,
         },
@@ -24,16 +26,19 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62,5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (70%). Последнее повторение с паузой",
+          weight: (maxWeight) => maxWeight * 0.7,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (75%)",
+          weight: (maxWeight) => maxWeight * 0.75,
           count: 5,
           reps: 5,
         },
@@ -44,16 +49,19 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62,5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (70%). Последнее повторение с паузой",
+          weight: (maxWeight) => maxWeight * 0.7,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (77.5%)",
+          weight: (maxWeight) => maxWeight * 0.775,
           count: 3,
           reps: 5,
         },
@@ -64,21 +72,25 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62,5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (72.5%). Последнее повторение с паузой",
+          weight: (maxWeight) => maxWeight * 0.725,
           count: 1,
           reps: 3,
         },
         {
           name: "Жим лежа (77.5%)",
+          weight: (maxWeight) => maxWeight * 0.775,
           count: 1,
           reps: 3,
         },
         {
           name: "Жим лежа (82.5%)",
+          weight: (maxWeight) => maxWeight * 0.825,
           count: 4,
           reps: 3,
         },
@@ -89,16 +101,19 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62,5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 1,
           reps: 8,
         },
         {
           name: "Жим лежа (67.5%)",
+          weight: (maxWeight) => maxWeight * 0.675,
           count: 4,
           reps: 8,
         },
         {
           name: "Жим лежа с паузой (72.5%)",
+          weight: (maxWeight) => maxWeight * 0.725,
           count: 1,
           reps: 1,
         },
@@ -109,21 +124,25 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62,5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (72.5%)",
+          weight: (maxWeight) => maxWeight * 0.725,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа с паузой (75%)",
+          weight: (maxWeight) => maxWeight * 0.75,
           count: 1,
           reps: 1,
         },
         {
           name: "Жим лежа с паузой (77.5%)",
+          weight: (maxWeight) => maxWeight * 0.775,
           count: 4,
           reps: 5,
         },
@@ -134,21 +153,25 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62,5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (72.5%)",
+          weight: (maxWeight) => maxWeight * 0.725,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа с паузой (75%)",
+          weight: (maxWeight) => maxWeight * 0.75,
           count: 1,
           reps: 1,
         },
         {
           name: "Жим лежа (80%)",
+          weight: (maxWeight) => maxWeight * 0.8,
           count: 4,
           reps: 5,
         },
@@ -159,31 +182,38 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62,5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (72.5%)",
+          weight: (maxWeight) => maxWeight * 0.725,
+
           count: 1,
           reps: 2,
         },
         {
           name: "Жим лежа с паузой (75%)",
+          weight: (maxWeight) => maxWeight * 0.75,
           count: 1,
           reps: 1,
         },
         {
           name: "Жим лежа (77.5%)",
+          weight: (maxWeight) => maxWeight * 0.775,
           count: 1,
           reps: 2,
         },
         {
           name: "Жим лежа (82.5%)",
+          weight: (maxWeight) => maxWeight * 0.825,
           count: 1,
           reps: 2,
         },
         {
           name: "Жим лежа (85%)",
+          weight: (maxWeight) => maxWeight * 0.85,
           count: 3,
           reps: 2,
         },
@@ -194,16 +224,19 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62,5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 3,
           reps: 8,
         },
         {
           name: "Жим лежа (70%)",
+          weight: (maxWeight) => maxWeight * 0.7,
           count: 4,
           reps: 8,
         },
         {
           name: "Жим лежа с паузой (77.5%)",
+          weight: (maxWeight) => maxWeight * 0.775,
           count: 1,
           reps: 1,
         },
@@ -214,21 +247,25 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62,5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (72.5%)",
+          weight: (maxWeight) => maxWeight * 0.725,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа с паузой (77.5%)",
+          weight: (maxWeight) => maxWeight * 0.775,
           count: 1,
           reps: 1,
         },
         {
           name: "Жим лежа (80%)",
+          weight: (maxWeight) => maxWeight * 0.8,
           count: 4,
           reps: 5,
         },
@@ -239,21 +276,19 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62,5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (72.5%)",
+          weight: (maxWeight) => maxWeight * 0.725,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (80%). Последний раз в каждом подходе с паузой",
-          count: 4,
-          reps: 5,
-        },
-        {
-          name: "Жим лежа (80%)",
+          weight: (maxWeight) => maxWeight * 0.8,
           count: 4,
           reps: 5,
         },
@@ -264,21 +299,25 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62,5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (72.5%)",
+          weight: (maxWeight) => maxWeight * 0.725,
           count: 1,
           reps: 3,
         },
         {
           name: "Жим лежа (80%). Последний раз с паузой",
+          weight: (maxWeight) => maxWeight * 0.8,
           count: 1,
           reps: 3,
         },
         {
           name: "Жим лежа (85%)",
+          weight: (maxWeight) => maxWeight * 0.85,
           count: 3,
           reps: 3,
         },
@@ -289,16 +328,19 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62,5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 1,
           reps: 8,
         },
         {
           name: "Жим лежа (72.5%)",
+          weight: (maxWeight) => maxWeight * 0.725,
           count: 4,
           reps: 8,
         },
         {
           name: "Жим лежа с паузой(82.5%)",
+          weight: (maxWeight) => maxWeight * 0.825,
           count: 1,
           reps: 1,
         },
@@ -309,21 +351,25 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62,5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (72.5%)",
+          weight: (maxWeight) => maxWeight * 0.725,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (80%)",
+          weight: (maxWeight) => maxWeight * 0.8,
           count: 4,
           reps: 5,
         },
         {
           name: "Жим лежа с паузой(82.5%)",
+          weight: (maxWeight) => maxWeight * 0.825,
           count: 1,
           reps: 1,
         },
@@ -334,21 +380,25 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62,5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (72.5%)",
+          weight: (maxWeight) => maxWeight * 0.725,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (82.5%)",
+          weight: (maxWeight) => maxWeight * 0.825,
           count: 3,
           reps: 5,
         },
         {
           name: "Жим лежа с паузой(85%)",
+          weight: (maxWeight) => maxWeight * 0.85,
           count: 1,
           reps: 1,
         },
@@ -359,21 +409,25 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62,5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (72.5%)",
+          weight: (maxWeight) => maxWeight * 0.725,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа с паузой (85%)",
+          weight: (maxWeight) => maxWeight * 0.85,
           count: 1,
           reps: 1,
         },
         {
           name: "Жим лежа с паузой(87.5%)",
+          weight: (maxWeight) => maxWeight * 0.875,
           count: 3,
           reps: 2,
         },
@@ -384,16 +438,19 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (65%)",
+          weight: (maxWeight) => maxWeight * 0.65,
           count: 1,
           reps: 8,
         },
         {
           name: "Жим лежа (75%)",
+          weight: (maxWeight) => maxWeight * 0.75,
           count: 4,
           reps: 8,
         },
         {
           name: "Жим лежа с паузой (87.5%)",
+          weight: (maxWeight) => maxWeight * 0.875,
           count: 1,
           reps: 1,
         },
@@ -404,21 +461,25 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62.5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (72.5%)",
+          weight: (maxWeight) => maxWeight * 0.725,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (82.5%)",
+          weight: (maxWeight) => maxWeight * 0.825,
           count: 3,
           reps: 5,
         },
         {
           name: "Жим лежа с паузой (87.5%)",
+          weight: (maxWeight) => maxWeight * 0.875,
           count: 1,
           reps: 1,
         },
@@ -429,21 +490,25 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (62.5%)",
+          weight: (maxWeight) => maxWeight * 0.625,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (72.5%)",
+          weight: (maxWeight) => maxWeight * 0.725,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (85%)",
+          weight: (maxWeight) => maxWeight * 0.85,
           count: 3,
           reps: 5,
         },
         {
           name: "Жим лежа с паузой (90%)",
+          weight: (maxWeight) => maxWeight * 0.9,
           count: 1,
           reps: 1,
         },
@@ -454,26 +519,32 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (65%)",
+          weight: (maxWeight) => maxWeight * 0.65,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (75%)",
+          weight: (maxWeight) => maxWeight * 0.75,
           count: 1,
           reps: 3,
         },
         {
           name: "Жим лежа (85%)",
+          weight: (maxWeight) => maxWeight * 0.85,
           count: 1,
           reps: 3,
         },
         {
           name: "Жим лежа (87.5%)",
+          weight: (maxWeight) => maxWeight * 0.875,
+
           count: 2,
           reps: 3,
         },
         {
           name: "Жим лежа с паузой(90%)",
+          weight: (maxWeight) => maxWeight * 0.9,
           count: 1,
           reps: 1,
         },
@@ -484,21 +555,25 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (65%)",
+          weight: (maxWeight) => maxWeight * 0.65,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (75%)",
+          weight: (maxWeight) => maxWeight * 0.75,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (85%)",
+          weight: (maxWeight) => maxWeight * 0.85,
           count: 3,
           reps: 5,
         },
         {
           name: "Жим лежа с паузой(90%)",
+          weight: (maxWeight) => maxWeight * 0.9,
           count: 1,
           reps: 1,
         },
@@ -509,26 +584,31 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (65%)",
+          weight: (maxWeight) => maxWeight * 0.65,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (75%)",
+          weight: (maxWeight) => maxWeight * 0.75,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (85%)",
+          weight: (maxWeight) => maxWeight * 0.85,
           count: 1,
           reps: 2,
         },
         {
           name: "Жим лежа (90%)",
+          weight: (maxWeight) => maxWeight * 0.9,
           count: 3,
           reps: 2,
         },
         {
           name: "Жим лежа с паузой(92.5%)",
+          weight: (maxWeight) => maxWeight * 0.925,
           count: 1,
           reps: 1,
         },
@@ -539,36 +619,43 @@ export const muravevTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим лежа (65%)",
+          weight: (maxWeight) => maxWeight * 0.65,
           count: 1,
           reps: 5,
         },
         {
           name: "Жим лежа (75%)",
+          weight: (maxWeight) => maxWeight * 0.75,
           count: 1,
           reps: 3,
         },
         {
           name: "Жим лежа (85%)",
+          weight: (maxWeight) => maxWeight * 0.85,
           count: 1,
           reps: 1,
         },
         {
           name: "Жим лежа c паузой (87.5%)",
+          weight: (maxWeight) => maxWeight * 0.875,
           count: 1,
           reps: 3,
         },
         {
           name: "Жим лежа (90%)",
+          weight: (maxWeight) => maxWeight * 0.9,
           count: 1,
           reps: 1,
         },
         {
           name: "Жим лежа с паузой(92.5%)",
+          weight: (maxWeight) => maxWeight * 0.925,
           count: 1,
           reps: 1,
         },
         {
           name: "Жим лежа (95%)",
+          weight: (maxWeight) => maxWeight * 0.95,
           count: 1,
           reps: 1,
         },

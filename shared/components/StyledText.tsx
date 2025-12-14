@@ -4,7 +4,7 @@ import { COLORS } from "../colors/colors";
 
 type StyledTextProps = React.ComponentProps<typeof Text> & {
   label: string;
-  variant?: "header" | "primary";
+  variant?: "header" | "primary" | "subtitle";
 };
 
 export const StyledText: FC<StyledTextProps> = ({
@@ -18,6 +18,8 @@ export const StyledText: FC<StyledTextProps> = ({
         return styles.header;
       case "primary":
         return styles.primary;
+      case "subtitle":
+        return styles.subtitle;
     }
   };
 
@@ -41,5 +43,9 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 20,
     fontWeight: 900,
+  },
+  subtitle: {
+    fontSize: 18,
+    fontWeight: 600,
   },
 });
