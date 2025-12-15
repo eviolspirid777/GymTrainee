@@ -4,4 +4,11 @@ export const COLORS = {
   TEXT_COLOR: "#fff",
   PLACEHOLDER_COLOR: "#999999",
   DANGER: "red",
+
+  _PRIMARY_COLOR: "#2c93d9",
+  _SECONDARY_COLOR: "#fff",
+  _THIRD_COLOR: "#57a9e1",
+  _FORTH_COLOR: "#2077b2",
+  _FIFTH_COLOR: "#e6e6e6",
+  _SIXTH_COLOR: "#82bfe9",
 };
