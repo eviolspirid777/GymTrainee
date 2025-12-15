@@ -9,11 +9,13 @@ import { Keyboard, Modal, StyleSheet, Vibration, View } from "react-native";
 type RecordsModalProps = {
   isModalVisible: boolean;
   onFinish: (newRecord: RecordType) => void;
+  onClose: () => void;
 };
 
 export const RecordsAddModal: FC<RecordsModalProps> = ({
   isModalVisible,
   onFinish,
+  onClose,
 }) => {
   const [exercisesData, setExercisesData] = useState<RecordType>({
     name: "",
@@ -21,6 +23,15 @@ export const RecordsAddModal: FC<RecordsModalProps> = ({
     weight: "",
   });
   const [error, setError] = useState<string>();
+
+  const handleCloseModal = () => {
+    onClose();
+    setExercisesData({
+      name: "",
+      reps: "",
+      weight: "",
+    });
+  };
 
   const handleCloseRecordsModal = () => {
     if (!exercisesData.name || !exercisesData.reps || !exercisesData.weight) {
@@ -30,11 +41,7 @@ export const RecordsAddModal: FC<RecordsModalProps> = ({
 
     Keyboard.dismiss();
     onFinish(exercisesData);
-    setExercisesData({
-      name: "",
-      reps: "",
-      weight: "",
-    });
+    handleCloseModal();
     Vibration.vibrate(3);
   };
 
@@ -48,16 +55,18 @@ export const RecordsAddModal: FC<RecordsModalProps> = ({
       animationType="slide"
       transparent={false}
       visible={isModalVisible}
-      onRequestClose={handleCloseRecordsModal}
+      onRequestClose={handleCloseModal}
     >
       <View style={styles.modal}>
         <View style={styles["modal-container"]}>
+          <StyledText label="Упражнение:" />
           <StyledTextInput
             placeholder="Название упражнения"
             style={styles["text-input"]}
             value={exercisesData.name}
             onChangeText={(name) => changeText(name, "name")}
           />
+          <StyledText label="Вес:" />
           <StyledTextInput
             keyboardType="numeric"
             placeholder="Вес (кг)"
@@ -65,6 +74,7 @@ export const RecordsAddModal: FC<RecordsModalProps> = ({
             value={exercisesData.weight}
             onChangeText={(weight) => changeText(weight, "weight")}
           />
+          <StyledText label="Кол-во раз:" />
           <StyledTextInput
             keyboardType="numeric"
             placeholder="Кол-во раз"

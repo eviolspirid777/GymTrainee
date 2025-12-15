@@ -40,6 +40,7 @@ const Index = () => {
 
   return (
     <View style={styles.main}>
+      <StyledText label="Максимальный жим лежа" />
       <View style={styles["main-add-max-weight"]}>
         <StyledTextInput
           style={styles["text-input"]}
@@ -48,9 +49,10 @@ const Index = () => {
           placeholder="Введите максимальный вес(кг)..."
         />
         <StyledButton onPress={submitMaxWeight}>
-          <StyledText label="Добавить" />
+          <StyledText label="Применить" />
         </StyledButton>
       </View>
+      <StyledText label="Программы:" />
       <FlatList
         style={styles.list}
         data={programsArray}
@@ -75,12 +77,14 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.PRIMARY_COLOR,
   },
   "main-add-max-weight": {
+    marginTop: 20,
     marginBottom: 40,
     flexDirection: "row",
     marginInline: 10,
     gap: 20,
   },
   list: {
+    marginTop: 20,
     flexDirection: "column",
   },
   "text-input": {
