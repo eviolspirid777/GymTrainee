@@ -46,7 +46,8 @@ const Index = () => {
           style={styles["text-input"]}
           value={maxWeight}
           onChangeText={setMaxWeight}
-          placeholder="Введите максимальный вес(кг)..."
+          placeholder="Максимальный вес(кг)..."
+          keyboardType="numeric"
         />
         <StyledButton onPress={submitMaxWeight}>
           <StyledText label="Применить" />
@@ -56,7 +57,7 @@ const Index = () => {
       <FlatList
         style={styles.list}
         data={programsArray}
-        keyExtractor={([label, data]) => label}
+        keyExtractor={([label]) => label}
         renderItem={renderTrainigProgramsList}
       />
     </View>
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
   },
   "text-input": {
     flex: 1,
-    height: 40,
+    height: 55,
     color: COLORS.TEXT_COLOR,
   },
 });
