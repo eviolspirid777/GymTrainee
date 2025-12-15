@@ -3,11 +3,10 @@ import { COLORS } from "@/shared/colors/colors";
 import { StyledButton } from "@/shared/components/StyledButton";
 import { StyledText } from "@/shared/components/StyledText";
 import { StyledTextInput } from "@/shared/components/StyledTextInput";
-import { useMaxWeight } from "@/shared/hooks/useMaxWeight";
+import { useMaxWeight } from "@/shared/hooks/MaxWeights/useMaxWeight";
 import * as programs from "@/shared/programs/index";
 import { TrainingProgram } from "@/types/TrainingProgram/TrainingProgram";
 import { useRouter } from "expo-router";
-import React from "react";
 import {
   FlatList,
   Keyboard,
