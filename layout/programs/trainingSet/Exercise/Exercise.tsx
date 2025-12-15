@@ -1,5 +1,5 @@
 import { StyledText } from "@/shared/components/StyledText";
-import { useMaxWeight } from "@/shared/hooks/useMaxWeight";
+import { useMaxWeight } from "@/shared/hooks/MaxWeights/useMaxWeight";
 import { Exercise } from "@/types/TrainingProgram/TrainingProgram";
 import { FC } from "react";
 import { FlatList, ListRenderItemInfo, StyleSheet, View } from "react-native";

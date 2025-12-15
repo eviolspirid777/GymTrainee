@@ -19,6 +19,7 @@ type StyledButtonProps = /*React.ComponentProps<typeof Pressable>*/ {
       };
   onPress?: (event: GestureResponderEvent) => void;
   type?: "primary" | "link";
+  variant?: "base" | "danger";
   disabled?: boolean;
   children?: React.ReactNode;
 };
@@ -28,6 +29,7 @@ export const StyledButton: FC<StyledButtonProps> = ({
   style,
   icon,
   type = "primary",
+  variant = "base",
   disabled,
   children,
   ...props
@@ -47,6 +49,15 @@ export const StyledButton: FC<StyledButtonProps> = ({
     }
   };
 
+  const computeVariantStyle = (): StyleProp<ViewStyle> => {
+    switch (variant) {
+      case "base":
+        return {};
+      case "danger":
+        return styles.danger;
+    }
+  };
+
   const computeDisabled = (): StyleProp<ViewStyle> => {
     if (disabled) {
       return styles.disabled;
@@ -59,7 +70,7 @@ export const StyledButton: FC<StyledButtonProps> = ({
         <FontAwesome
           name={typeof icon === "string" ? icon : icon.type}
           size={20}
-          color={COLORS.SECONDARY_COLOR}
+          color={variant === "danger" ? COLORS.DANGER : COLORS.SECONDARY_COLOR}
         />
       );
     }
@@ -71,7 +82,7 @@ export const StyledButton: FC<StyledButtonProps> = ({
         <FontAwesome
           name={icon.type}
           size={20}
-          color={COLORS.SECONDARY_COLOR}
+          color={variant === "danger" ? COLORS.DANGER : COLORS.SECONDARY_COLOR}
         />
       );
     }
@@ -85,6 +96,7 @@ export const StyledButton: FC<StyledButtonProps> = ({
         styles.container,
         computePressedStyle(pressed),
         computeTypeStyle(),
+        computeVariantStyle(),
         computeDisabled(),
         style,
       ]}
@@ -100,8 +112,8 @@ export const StyledButton: FC<StyledButtonProps> = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    alignItems: "flex-end",
     justifyContent: "center",
+    alignItems: "center",
     gap: 5,
     padding: 15,
   },
@@ -109,13 +121,18 @@ const styles = StyleSheet.create({
     opacity: 0.5,
     borderColor: COLORS.DANGER,
   },
+  pressed: {
+    opacity: 0.5,
+  },
+  //type
   primary: {
     borderColor: COLORS.SECONDARY_COLOR,
     borderWidth: 1,
     borderStyle: "solid",
     borderRadius: 20,
   },
-  pressed: {
-    opacity: 0.5,
+  //variant
+  danger: {
+    borderColor: COLORS.DANGER,
   },
 });
