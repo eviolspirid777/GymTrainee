@@ -1,6 +1,9 @@
+import { COLORS } from "@/shared/colors/colors";
 import { StyledText } from "@/shared/components/StyledText";
 import { useMaxWeight } from "@/shared/hooks/MaxWeights/useMaxWeight";
 import { Exercise } from "@/types/TrainingProgram/TrainingProgram";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { useRouter } from "expo-router";
 import { FC } from "react";
 import { FlatList, ListRenderItemInfo, StyleSheet, View } from "react-native";
 import { RepeatComponent } from "./Repeat/Repeat";
@@ -10,6 +13,8 @@ type ExerciseComponentProps = {
 };
 
 export const ExerciseComponent: FC<ExerciseComponentProps> = ({ exercise }) => {
+  const router = useRouter();
+
   const renderRepeat = ({ item, index }: ListRenderItemInfo<number>) => {
     return <RepeatComponent repeat={item} />;
   };
@@ -42,6 +47,12 @@ export const ExerciseComponent: FC<ExerciseComponentProps> = ({ exercise }) => {
 
   return (
     <View style={styles.container}>
+      <FontAwesome
+        name="info-circle"
+        size={22}
+        style={styles.icon}
+        onPress={() => router.push(`/programs/exercises/${exercise.name}`)}
+      />
       <StyledText label={exercise.name} style={styles.tag} />
       <View style={styles["repiets-block"]}>
         {exercise.weight && (
@@ -59,7 +70,7 @@ export const ExerciseComponent: FC<ExerciseComponentProps> = ({ exercise }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    gap: 20,
+    gap: 10,
     width: "100%",
     alignItems: "center",
     justifyContent: "space-evenly",
@@ -76,5 +87,10 @@ const styles = StyleSheet.create({
   },
   "repiets-block": {
     alignItems: "center",
+  },
+  icon: {
+    color: COLORS.TEXT_COLOR,
+    padding: 2,
+    alignSelf: "center",
   },
 });

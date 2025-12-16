@@ -4,7 +4,6 @@ export type TrainingProgram = {
   trainingDays: TrainingDay[];
   results?: {
     passedTrainings: number;
-    trainings: number;
   };
   information?: {
     description: string;
@@ -23,4 +22,6 @@ export type Exercise = {
   count: number;
   //Повторения
   reps: number | number[] | "max";
+  //Завершенность упраженения
+  passed?: boolean;
 };
