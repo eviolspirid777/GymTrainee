@@ -1,3 +1,5 @@
+import { ExercisesEnum } from "../Exercises/Exercises";
+
 export type TrainingProgram = {
   id: string;
   name: string;
@@ -24,4 +26,5 @@ export type Exercise = {
   reps: number | number[] | "max";
   //Завершенность упраженения
   passed?: boolean;
+  type?: ExercisesEnum;
 };

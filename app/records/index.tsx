@@ -1,3 +1,4 @@
+import NoRecordsImage from "@/assets/graphics/Empty.png";
 import { RecordsAddModal } from "@/layout/records/modal/Add/RecordsAddModal";
 import { RecordsEditModal } from "@/layout/records/modal/Edit/RecordsEditModal";
 import { RecordComponent } from "@/layout/records/recordComponent/RecordComponent";
@@ -14,7 +15,6 @@ import {
   StyleSheet,
   View,
 } from "react-native";
-import NoRecordsImage from "../../assets/graphics/Empty.png";
 
 export default function Index() {
   const [addModalVisibile, setAddModalVisibile] = useState(false);

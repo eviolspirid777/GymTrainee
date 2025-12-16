@@ -4,6 +4,7 @@ export const COLORS = {
   TEXT_COLOR: "#fff",
   PLACEHOLDER_COLOR: "#999999",
   DANGER: "red",
+  ACCEPT: "green",
 
   _PRIMARY_COLOR: "#2c93d9",
   _SECONDARY_COLOR: "#fff",

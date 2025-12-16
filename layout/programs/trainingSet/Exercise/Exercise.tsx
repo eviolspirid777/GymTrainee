@@ -1,4 +1,5 @@
 import { COLORS } from "@/shared/colors/colors";
+import { StyledButton } from "@/shared/components/StyledButton";
 import { StyledText } from "@/shared/components/StyledText";
 import { useMaxWeight } from "@/shared/hooks/MaxWeights/useMaxWeight";
 import { Exercise } from "@/types/TrainingProgram/TrainingProgram";
@@ -10,9 +11,13 @@ import { RepeatComponent } from "./Repeat/Repeat";
 
 type ExerciseComponentProps = {
   exercise: Exercise;
+  onCheckPress: (exerciseName: Exercise["name"], state: boolean) => void;
 };
 
-export const ExerciseComponent: FC<ExerciseComponentProps> = ({ exercise }) => {
+export const ExerciseComponent: FC<ExerciseComponentProps> = ({
+  exercise,
+  onCheckPress,
+}) => {
   const router = useRouter();
 
   const renderRepeat = ({ item, index }: ListRenderItemInfo<number>) => {
@@ -51,7 +56,7 @@ export const ExerciseComponent: FC<ExerciseComponentProps> = ({ exercise }) => {
         name="info-circle"
         size={22}
         style={styles.icon}
-        onPress={() => router.push(`/programs/exercises/${exercise.name}`)}
+        onPress={() => router.push(`/programs/exercises/${exercise.type}`)}
       />
       <StyledText label={exercise.name} style={styles.tag} />
       <View style={styles["repiets-block"]}>
@@ -63,6 +68,18 @@ export const ExerciseComponent: FC<ExerciseComponentProps> = ({ exercise }) => {
         <StyledText label={`Подходов: ${exercise.count}`} />
         {renderRepeats()}
       </View>
+      {exercise.passed ? (
+        <StyledButton
+          icon="check"
+          onPress={onCheckPress.bind(null, exercise.name, !exercise.passed)}
+          variant="accept"
+        />
+      ) : (
+        <StyledButton
+          icon="check"
+          onPress={onCheckPress.bind(null, exercise.name, !exercise.passed)}
+        />
+      )}
     </View>
   );
 };

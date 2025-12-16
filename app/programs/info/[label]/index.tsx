@@ -6,7 +6,7 @@ import { TrainingProgram } from "@/types/TrainingProgram/TrainingProgram";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Image, StyleSheet, View } from "react-native";
 
-import NoRecordsImage from "../../../../assets/graphics/Empty.png";
+import NoRecordsImage from "@/assets/graphics/Empty.png";
 
 const InformationLabel = () => {
   const router = useRouter();

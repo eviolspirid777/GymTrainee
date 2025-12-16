@@ -28,7 +28,7 @@ const Index = () => {
     return (
       <TrainingProgramLink
         trainingLabel={data.name}
-        onTrainingPress={router.push.bind(null, `/programs/${label}`)}
+        onTrainingPress={router.push.bind(null, `/programs/${data.id}`)}
         onInfoPress={router.push.bind(null, `/programs/info/${label}`)}
       />
     );

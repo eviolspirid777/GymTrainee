@@ -6,11 +6,26 @@ import { ExerciseComponent } from "./Exercise/Exercise";
 
 type TrainingSetProps = {
   trainingSet: TrainingDay;
+  onCheckPress: (
+    exerciseName: Exercise["name"],
+    state: boolean,
+    trainingSetDay: TrainingDay["trainingNumber"]
+  ) => void;
 };
 
-export const TrainingSetComponent: FC<TrainingSetProps> = ({ trainingSet }) => {
+export const TrainingSetComponent: FC<TrainingSetProps> = ({
+  trainingSet,
+  onCheckPress,
+}) => {
   const renderExercise = ({ item }: ListRenderItemInfo<Exercise>) => {
-    return <ExerciseComponent exercise={item} />;
+    return (
+      <ExerciseComponent
+        exercise={item}
+        onCheckPress={(name, state) =>
+          onCheckPress(name, state, trainingSet.trainingNumber)
+        }
+      />
+    );
   };
 
   return (

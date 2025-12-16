@@ -19,7 +19,7 @@ type StyledButtonProps = /*React.ComponentProps<typeof Pressable>*/ {
       };
   onPress?: (event: GestureResponderEvent) => void;
   type?: "primary" | "link";
-  variant?: "base" | "danger";
+  variant?: "base" | "danger" | "accept";
   disabled?: boolean;
   children?: React.ReactNode;
 };
@@ -55,6 +55,8 @@ export const StyledButton: FC<StyledButtonProps> = ({
         return {};
       case "danger":
         return styles.danger;
+      case "accept":
+        return styles.accept;
     }
   };
 
@@ -64,13 +66,24 @@ export const StyledButton: FC<StyledButtonProps> = ({
     }
   };
 
+  const computeIconColor = () => {
+    switch (variant) {
+      case "base":
+        return COLORS.SECONDARY_COLOR;
+      case "danger":
+        return COLORS.DANGER;
+      case "accept":
+        return COLORS.ACCEPT;
+    }
+  };
+
   const renderIconPrevious = () => {
     if (icon && (typeof icon === "string" || icon.direction === "before")) {
       return (
         <FontAwesome
           name={typeof icon === "string" ? icon : icon.type}
           size={20}
-          color={variant === "danger" ? COLORS.DANGER : COLORS.SECONDARY_COLOR}
+          color={computeIconColor()}
         />
       );
     }
@@ -79,11 +92,7 @@ export const StyledButton: FC<StyledButtonProps> = ({
   const renderIconAfter = () => {
     if (icon && typeof icon !== "string" && icon.direction === "after") {
       return (
-        <FontAwesome
-          name={icon.type}
-          size={20}
-          color={variant === "danger" ? COLORS.DANGER : COLORS.SECONDARY_COLOR}
-        />
+        <FontAwesome name={icon.type} size={20} color={computeIconColor()} />
       );
     }
   };
@@ -134,5 +143,8 @@ const styles = StyleSheet.create({
   //variant
   danger: {
     borderColor: COLORS.DANGER,
+  },
+  accept: {
+    borderColor: COLORS.ACCEPT,
   },
 });

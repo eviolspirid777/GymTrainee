@@ -1,3 +1,4 @@
+import { ExercisesEnum } from "@/types/Exercises/Exercises";
 import { TrainingProgram } from "@/types/TrainingProgram/TrainingProgram";
 
 export const muravevTrainingProgram: TrainingProgram = {
@@ -13,6 +14,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 3,
           reps: 8,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой (67,5%)",
@@ -20,6 +22,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -32,6 +35,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (70%). Последнее повторение с паузой",
@@ -39,6 +43,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (75%)",
@@ -46,6 +51,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 5,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -58,6 +64,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (70%). Последнее повторение с паузой",
@@ -65,6 +72,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (77.5%)",
@@ -72,6 +80,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 3,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -84,6 +93,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (72.5%). Последнее повторение с паузой",
@@ -91,6 +101,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 3,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (77.5%)",
@@ -98,6 +109,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 3,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (82.5%)",
@@ -105,6 +117,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 4,
           reps: 3,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -117,6 +130,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 8,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (67.5%)",
@@ -124,6 +138,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 4,
           reps: 8,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой (72.5%)",
@@ -131,6 +146,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -143,6 +159,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (72.5%)",
@@ -150,6 +167,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой (75%)",
@@ -157,6 +175,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой (77.5%)",
@@ -164,6 +183,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 4,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -176,6 +196,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (72.5%)",
@@ -183,6 +204,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой (75%)",
@@ -190,6 +212,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (80%)",
@@ -197,6 +220,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 4,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -209,6 +233,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (72.5%)",
@@ -217,6 +242,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 2,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой (75%)",
@@ -224,6 +250,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (77.5%)",
@@ -231,6 +258,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 2,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (82.5%)",
@@ -238,6 +266,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 2,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (85%)",
@@ -245,6 +274,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 3,
           reps: 2,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -257,6 +287,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 3,
           reps: 8,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (70%)",
@@ -264,6 +295,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 4,
           reps: 8,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой (77.5%)",
@@ -271,6 +303,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -283,6 +316,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (72.5%)",
@@ -290,6 +324,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой (77.5%)",
@@ -297,6 +332,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (80%)",
@@ -304,6 +340,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 4,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -316,6 +353,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (72.5%)",
@@ -323,6 +361,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (80%). Последний раз в каждом подходе с паузой",
@@ -330,6 +369,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 4,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -342,6 +382,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (72.5%)",
@@ -349,6 +390,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 3,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (80%). Последний раз с паузой",
@@ -356,6 +398,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 3,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (85%)",
@@ -363,6 +406,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 3,
           reps: 3,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -375,6 +419,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 8,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (72.5%)",
@@ -382,6 +427,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 4,
           reps: 8,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой(82.5%)",
@@ -389,6 +435,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -401,6 +448,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (72.5%)",
@@ -408,6 +456,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (80%)",
@@ -415,6 +464,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 4,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой(82.5%)",
@@ -422,6 +472,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -434,6 +485,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (72.5%)",
@@ -441,6 +493,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (82.5%)",
@@ -448,6 +501,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 3,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой(85%)",
@@ -455,6 +509,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -467,6 +522,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (72.5%)",
@@ -474,6 +530,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой (85%)",
@@ -481,6 +538,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой(87.5%)",
@@ -488,6 +546,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 3,
           reps: 2,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -500,6 +559,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 8,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (75%)",
@@ -507,6 +567,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 4,
           reps: 8,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой (87.5%)",
@@ -514,6 +575,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -526,6 +588,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (72.5%)",
@@ -533,6 +596,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (82.5%)",
@@ -540,6 +604,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 3,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой (87.5%)",
@@ -547,6 +612,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -559,6 +625,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (72.5%)",
@@ -566,6 +633,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (85%)",
@@ -573,6 +641,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 3,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой (90%)",
@@ -580,6 +649,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -592,6 +662,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (75%)",
@@ -599,6 +670,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 3,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (85%)",
@@ -606,6 +678,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 3,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (87.5%)",
@@ -614,6 +687,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 2,
           reps: 3,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой(90%)",
@@ -621,6 +695,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -633,6 +708,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (75%)",
@@ -640,6 +716,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (85%)",
@@ -647,6 +724,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 3,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой(90%)",
@@ -654,6 +732,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -666,6 +745,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (75%)",
@@ -673,6 +753,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (85%)",
@@ -680,6 +761,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 2,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (90%)",
@@ -687,6 +769,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 3,
           reps: 2,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой(92.5%)",
@@ -694,6 +777,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
@@ -706,6 +790,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 5,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (75%)",
@@ -713,6 +798,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 3,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (85%)",
@@ -720,6 +806,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа c паузой (87.5%)",
@@ -727,6 +814,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 3,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (90%)",
@@ -734,6 +822,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа с паузой(92.5%)",
@@ -741,6 +830,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
         {
           name: "Жим лежа (95%)",
@@ -748,6 +838,7 @@ export const muravevTrainingProgram: TrainingProgram = {
           count: 1,
           reps: 1,
           passed: false,
+          type: ExercisesEnum.BENCH_PRESS,
         },
       ],
     },
