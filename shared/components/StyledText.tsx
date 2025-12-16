@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { StyleSheet, Text } from "react-native";
 import { COLORS } from "../colors/colors";
 
@@ -6,12 +6,16 @@ type StyledTextProps = React.ComponentProps<typeof Text> & {
   label: string;
   variant?: "header" | "primary" | "subtitle";
   type?: "error" | "base";
+  after?: ReactNode;
+  before?: ReactNode;
 };
 
 export const StyledText: FC<StyledTextProps> = ({
   label,
   variant = "primary",
   type = "base",
+  after,
+  before,
   ...props
 }) => {
   const computedVariantStyles = () => {
@@ -44,7 +48,9 @@ export const StyledText: FC<StyledTextProps> = ({
         props.style,
       ]}
     >
+      {before && before}
       {label}
+      {after && after}
     </Text>
   );
 };

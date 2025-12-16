@@ -2,8 +2,8 @@ import { TrainingProgram } from "@/types/TrainingProgram/TrainingProgram";
 
 export const uncleMishaTrainingProgram: TrainingProgram = {
   id: "Dyadya_Misha",
-  name: "Программа на жим лежа (дядя Миша)",
-  trainingSets: [
+  name: "Дядя Миша (жим лежа)",
+  trainingDays: [
     {
       trainingNumber: 1,
       exercises: [

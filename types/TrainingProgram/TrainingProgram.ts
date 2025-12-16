@@ -1,10 +1,17 @@
 export type TrainingProgram = {
   id: string;
   name: string;
-  trainingSets: TrainingSet[];
+  trainingDays: TrainingDay[];
+  results?: {
+    passedTrainings: number;
+    trainings: number;
+  };
+  information?: {
+    description: string;
+  };
 };
 
-export type TrainingSet = {
+export type TrainingDay = {
   trainingNumber: number;
   exercises: Exercise[];
 };

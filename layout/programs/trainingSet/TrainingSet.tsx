@@ -1,14 +1,11 @@
 import { StyledText } from "@/shared/components/StyledText";
-import {
-  Exercise,
-  TrainingSet as TrainingSetType,
-} from "@/types/TrainingProgram/TrainingProgram";
+import { Exercise, TrainingDay } from "@/types/TrainingProgram/TrainingProgram";
 import { FC } from "react";
 import { FlatList, ListRenderItemInfo, StyleSheet, View } from "react-native";
 import { ExerciseComponent } from "./Exercise/Exercise";
 
 type TrainingSetProps = {
-  trainingSet: TrainingSetType;
+  trainingSet: TrainingDay;
 };
 
 export const TrainingSetComponent: FC<TrainingSetProps> = ({ trainingSet }) => {

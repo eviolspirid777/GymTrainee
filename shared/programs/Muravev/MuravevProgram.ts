@@ -2,8 +2,8 @@ import { TrainingProgram } from "@/types/TrainingProgram/TrainingProgram";
 
 export const muravevTrainingProgram: TrainingProgram = {
   id: "Muravev_Training_Program",
-  name: "Программа Муравьева на жим лежа",
-  trainingSets: [
+  name: "Муравьев (жим лежа)",
+  trainingDays: [
     {
       trainingNumber: 1,
       exercises: [

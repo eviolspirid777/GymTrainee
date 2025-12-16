@@ -23,12 +23,12 @@ const Index = () => {
         style={styles.header}
       />
       <TrainingSetComponent
-        trainingSet={selectedProgram.trainingSets[selectedTrainingNumber]}
+        trainingSet={selectedProgram.trainingDays[selectedTrainingNumber]}
       />
       <ListSkipButtons
         selectedTrainingNumber={selectedTrainingNumber}
         limits={{
-          high: selectedProgram.trainingSets.length - 1,
+          high: selectedProgram.trainingDays.length - 1,
           low: 0,
         }}
         onNextPress={setSelectedTrainingNumber.bind(null, (prev) => prev + 1)}
