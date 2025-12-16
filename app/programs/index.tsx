@@ -41,7 +41,7 @@ const Index = () => {
 
   return (
     <View style={styles.main}>
-      <StyledText label="Максимальный жим лежа" />
+      <StyledText label="Максимальный жим лежа" variant="header" />
       <View style={styles["main-add-max-weight"]}>
         <StyledTextInput
           style={styles["text-input"]}
@@ -54,7 +54,7 @@ const Index = () => {
           <StyledText label="Применить" />
         </StyledButton>
       </View>
-      <StyledText label="Программы:" />
+      <StyledText label="Программы:" variant="header" />
       <FlatList
         style={styles.list}
         data={programsArray}

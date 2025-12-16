@@ -14,7 +14,7 @@ export default function Index() {
           width: "100%",
           height: 300,
           resizeMode: "contain",
-          marginRight: 46
+          marginRight: 46,
         }}
       />
       <Routes />

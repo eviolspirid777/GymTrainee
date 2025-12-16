@@ -57,6 +57,7 @@ export default function Index() {
   return (
     <>
       <View style={styles.container}>
+        <StyledText label="Рекорды" variant="header" />
         <View
           style={[
             styles["container-data"],
@@ -113,6 +114,7 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     position: "relative",
+    paddingTop: 60,
     backgroundColor: COLORS.PRIMARY_COLOR,
     paddingVertical: 10,
     minWidth: "100%",
@@ -134,7 +136,7 @@ const styles = StyleSheet.create({
   "container-data": {
     minWidth: "100%",
     flex: 1,
-    paddingTop: 40,
+    paddingTop: 10,
     flexDirection: "column",
   },
   "action-button": {
