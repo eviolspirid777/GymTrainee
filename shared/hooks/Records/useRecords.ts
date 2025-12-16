@@ -6,21 +6,21 @@ import { v4 as uuidv4 } from "uuid";
 const getBasedRecords = (): RecordType[] => {
   return [
     {
-      id: uuidv4(),
+      id: "zhim_lezha",
       name: "Жим лежа",
-      reps: "0",
+      reps: "1",
       weight: "0",
     },
     {
-      id: uuidv4(),
+      id: "stanovaya_tyaga",
       name: "Становая тяга",
-      reps: "0",
+      reps: "1",
       weight: "0",
     },
     {
-      id: uuidv4(),
+      id: "prisedanya_so_shtangoi",
       name: "Приседания со штангой",
-      reps: "0",
+      reps: "1",
       weight: "0",
     },
   ];

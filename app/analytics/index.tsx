@@ -7,7 +7,10 @@ import { LineChart } from "react-native-chart-kit";
 import { type LineChartData } from "react-native-chart-kit/dist/line-chart/LineChart";
 
 const Analytics = () => {
-  const screenWidth = Dimensions.get("window").width;
+  const {width: screenWidth, height: screenHeight} = Dimensions.get("window");
+
+  const graphicWidth = screenWidth - 32;
+  const graphicHeight = (screenHeight - (300)) / 3
 
   const { records } = useRecords();
 
@@ -22,24 +25,89 @@ const Analytics = () => {
     ],
   });
 
+  const [trainingActivity, setTrainingActivity] = useState([
+    {
+      name: "Жим лежа",
+      population: 15,
+      color: COLORS.SECONDARY_COLOR,
+      legendFontColor: COLORS.TEXT_COLOR,
+    },
+    {
+      name: "Становая тяга",
+      population: 8,
+      color: "#FF6B6B",
+      legendFontColor: COLORS.TEXT_COLOR,
+    },
+    {
+      name: "Приседания",
+      population: 12,
+      color: "#4ECDC4",
+      legendFontColor: COLORS.TEXT_COLOR,
+    },
+  ]);
+
   return (
     <View style={styles.container}>
       <StyledText label="Аналитика" variant="header" style={styles.header} />
-      <LineChart
-        data={data}
-        width={screenWidth - 32}
-        height={220}
-        chartConfig={{
-          backgroundColor: "#1e1e1e",
-          backgroundGradientFrom: "#1e1e1e",
-          backgroundGradientTo: "#1e1e1e",
-          decimalPlaces: 1,
-          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          style: { borderRadius: 16 },
-        }}
-        bezier
-      />
+      <View style={
+        styles["container-data"]
+      }>
+        {/* <StyledText label="Силовые показатели" variant="subtitle"/> */}
+        <View style={styles["container-data__item-block"]}>
+          <StyledText label="Жим лежа" variant="primary"/>
+          <LineChart
+            data={data}
+            width={graphicWidth}
+            height={graphicHeight}
+            chartConfig={{
+              backgroundColor: "#1e1e1e",
+              backgroundGradientFrom: "#1e1e1e",
+              backgroundGradientTo: "#1e1e1e",
+              decimalPlaces: 1,
+              color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              style: { borderRadius: 16 },
+            }}
+            bezier
+          />
+        </View>
+        <View style={styles["container-data__item-block"]}>
+          <StyledText label="Становая тяга"/>
+          <LineChart
+            data={data}
+            width={graphicWidth}
+            height={graphicHeight}
+            chartConfig={{
+              backgroundColor: "#1e1e1e",
+              backgroundGradientFrom: "#1e1e1e",
+              backgroundGradientTo: "#1e1e1e",
+              decimalPlaces: 1,
+              color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              style: { borderRadius: 16 },
+            }}
+            bezier
+          />
+        </View>
+        <View style={styles["container-data__item-block"]}>
+          <StyledText label="Приседания"/>
+          <LineChart
+            data={data}
+            width={graphicWidth}
+            height={graphicHeight}
+            chartConfig={{
+              backgroundColor: "#1e1e1e",
+              backgroundGradientFrom: "#1e1e1e",
+              backgroundGradientTo: "#1e1e1e",
+              decimalPlaces: 1,
+              color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              style: { borderRadius: 16 },
+            }}
+            bezier
+          />
+        </View>
+      </View>
     </View>
   );
 };
@@ -52,6 +120,16 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     backgroundColor: COLORS.PRIMARY_COLOR,
     flex: 1,
+  },
+  "container-data": {
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 20
+  },
+  "container-data__item-block": {
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 10
   },
   header: {
     marginBottom: 20,

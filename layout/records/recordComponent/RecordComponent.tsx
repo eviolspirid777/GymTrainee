@@ -16,6 +16,8 @@ export const RecordComponent: FC<RecordProps> = ({
   onDeleteRecord,
   onRecordEdit,
 }) => {
+  const isDeleteAvailable = !["zhim_lezha", "stanovaya_tyaga", "prisedanya_so_shtangoi"].includes(record.id ?? "")
+
   return (
     <View style={styles["record-item-container"]}>
       <View style={styles["record-item-container__data"]}>
@@ -29,11 +31,14 @@ export const RecordComponent: FC<RecordProps> = ({
       </View>
       <View style={styles["record-item-container__action-buttons"]}>
         <StyledButton icon="edit" onPress={onRecordEdit.bind(null, record)} />
+        {
+          isDeleteAvailable &&
         <StyledButton
           icon="trash"
           variant="danger"
           onPress={onDeleteRecord.bind(null, record.id)}
         />
+        }
       </View>
     </View>
   );

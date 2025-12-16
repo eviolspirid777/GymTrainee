@@ -60,12 +60,14 @@ export const RecordsEditModal: FC<RecordsModalProps> = ({
     >
       <View style={styles.modal}>
         <View style={styles["modal-container"]}>
+          <StyledText label="Упражнение:" />
           <StyledTextInput
             placeholder="Название упражнения"
             style={styles["text-input"]}
             value={exercisesData?.name}
             onChangeText={(name) => changeText(name, "name")}
           />
+          <StyledText label="Вес:" />
           <StyledTextInput
             keyboardType="numeric"
             placeholder="Вес (кг)"
@@ -73,12 +75,14 @@ export const RecordsEditModal: FC<RecordsModalProps> = ({
             value={exercisesData?.weight}
             onChangeText={(weight) => changeText(weight, "weight")}
           />
+          <StyledText label="Кол-во раз:" />
           <StyledTextInput
             keyboardType="numeric"
             placeholder="Кол-во раз"
             style={styles["text-input"]}
             value={exercisesData?.reps}
             onChangeText={(reps) => changeText(reps, "reps")}
+            disabled={["zhim_lezha", "stanovaya_tyaga", "prisedanya_so_shtangoi"].includes(record?.id ?? "")}
           />
           {error && (
             <StyledText label={error} type="error" variant="subtitle" />

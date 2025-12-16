@@ -6,7 +6,9 @@ import { COLORS } from "@/shared/colors/colors";
 import { StyledButton } from "@/shared/components/StyledButton";
 import { StyledText } from "@/shared/components/StyledText";
 import { useRecords } from "@/shared/hooks/Records/useRecords";
+import { useWeightsAnalytic } from "@/shared/hooks/WeightsAnalytic/useWeightsAnalytic";
 import { RecordType } from "@/types/RecordsType/RecordsType";
+import { WeightAnalyticsEnum } from "@/types/WeightAnalytics/WeightAnalytics";
 import React, { useState } from "react";
 import {
   FlatList,
@@ -23,6 +25,7 @@ export default function Index() {
   const [recordToEdit, setRecordToEdit] = useState<RecordType>();
 
   const { records, addNewRecord, editRecord, deleteRecord } = useRecords();
+  const {addWeightAnalytic} = useWeightsAnalytic()
 
   const isRecordsAvailable = records && records.length > 0;
 
@@ -34,8 +37,35 @@ export default function Index() {
     setAddModalVisibile(false);
   };
 
+  const addAnalytic = async (edittedRecord: RecordType) => {
+    switch(edittedRecord.name) {
+      case "Жим лежа": {
+        return await addWeightAnalytic({
+          date: new Date(),
+          type: WeightAnalyticsEnum.ZHIM_LEZHA,
+          weight: Number(edittedRecord.weight)
+        }, "zhimLezhaAnalytic")
+      }
+      case "Становая тяга": {
+        return await addWeightAnalytic({
+          date: new Date(),
+          type: WeightAnalyticsEnum.STANOVAYA_TYAGA,
+          weight: Number(edittedRecord.weight)
+        }, "stanovayaTyagaAnalytics")
+      }
+      case "Приседания со штангой": {
+        return await addWeightAnalytic({
+          date: new Date(),
+          type: WeightAnalyticsEnum.PRISEDANYA_SO_SHTANGOI,
+          weight: Number(edittedRecord.weight)
+        }, "prisedanyaSoShtangoiAnalytics")
+      }
+    }
+  }
+
   const handleEditFinish = async (edittedRecord: RecordType) => {
     await editRecord(edittedRecord);
+    await addAnalytic(edittedRecord)
     setEditModalVisibile(false);
   };
 

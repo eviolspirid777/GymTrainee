@@ -1,10 +1,13 @@
 import { Header } from "@/layout/base/Header/Header";
 import { Routes } from "@/layout/base/Routes/Routes";
 import { COLORS } from "@/shared/colors/colors";
+import { useWeightsAnalytic } from "@/shared/hooks/WeightsAnalytic/useWeightsAnalytic";
 import { Image, StyleSheet, View } from "react-native";
 import GymLogo from "../assets/graphics/GymTraineeLogo.png";
 
 export default function Index() {
+  useWeightsAnalytic()
+
   return (
     <View style={styles.main}>
       <Header />
