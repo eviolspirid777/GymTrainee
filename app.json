@@ -4,7 +4,7 @@
     "slug": "gym-trainee",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/GymTraineeIcon.ico",
+    "icon": "./assets/images/GymTraineeIcon.png",
     "scheme": "gymtrainee",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -14,9 +14,9 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/GymTraineeIcon.ico",
-        "backgroundImage": "./assets/images/GymTraineeIcon.ico",
-        "monochromeImage": "./assets/images/GymTraineeIcon.ico"
+        "foregroundImage": "./assets/images/GymTraineeIcon.png",
+        "backgroundImage": "./assets/images/GymTraineeIcon.png",
+        "monochromeImage": "./assets/images/GymTraineeIcon.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
@@ -24,7 +24,7 @@
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/GymTraineeIcon.ico"
+      "favicon": "./assets/images/GymTraineeIcon.png"
     },
     "plugins": [
       "expo-router",
