@@ -4,7 +4,9 @@ import { RecordsEditModal } from "@/layout/records/modal/Edit/RecordsEditModal";
 import { RecordComponent } from "@/layout/records/recordComponent/RecordComponent";
 import { COLORS } from "@/shared/colors/colors";
 import { StyledButton } from "@/shared/components/StyledButton";
+import { StyledPickerData } from "@/shared/components/StyledPicker";
 import { StyledText } from "@/shared/components/StyledText";
+import { russianExercisesDictionary } from "@/shared/exercises/technique/TechniqueRussification";
 import { useRecords } from "@/shared/hooks/Records/useRecords";
 import { useWeightsAnalytic } from "@/shared/hooks/WeightsAnalytic/useWeightsAnalytic";
 import { RecordType } from "@/types/RecordsType/RecordsType";
@@ -19,6 +21,15 @@ import {
 } from "react-native";
 
 export default function Index() {
+  //TODO: УПражнения можно убрать в store...(Provider)
+  const [ exercieses ] = useState<StyledPickerData[]>(() => {
+    const _exercises = Object.entries(Object.fromEntries(russianExercisesDictionary));
+    return _exercises.map(([k,v]) => ({
+      label: v,
+      value: k
+    }))
+  })
+
   const [addModalVisibile, setAddModalVisibile] = useState(false);
   const [editModalVisibile, setEditModalVisibile] = useState(false);
 
@@ -128,13 +139,15 @@ export default function Index() {
 
       <RecordsAddModal
         isModalVisible={addModalVisibile}
+        exercises={exercieses}
         onFinish={handleAddModalFinish}
         onClose={closeAddModal}
       />
 
       <RecordsEditModal
-        record={recordToEdit}
         isModalVisible={editModalVisibile}
+        exercises={exercieses}
+        record={recordToEdit}
         onFinish={handleEditFinish}
       />
     </>

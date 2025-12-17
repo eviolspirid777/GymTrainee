@@ -1,3 +1,5 @@
+import { russianExercisesDictionary } from "@/shared/exercises/technique/TechniqueRussification";
+import { ExercisesEnum } from "@/types/Exercises/Exercises";
 import { RecordType } from "@/types/RecordsType/RecordsType";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from "react";
@@ -7,19 +9,19 @@ const getBasedRecords = (): RecordType[] => {
   return [
     {
       id: "zhim_lezha",
-      name: "Жим лежа",
+      name: russianExercisesDictionary.get(ExercisesEnum.BENCH_PRESS)!,
       reps: "1",
       weight: "0",
     },
     {
       id: "stanovaya_tyaga",
-      name: "Становая тяга",
+      name: russianExercisesDictionary.get(ExercisesEnum.DEAD_LIFT)!,
       reps: "1",
       weight: "0",
     },
     {
       id: "prisedanya_so_shtangoi",
-      name: "Приседания со штангой",
+      name: russianExercisesDictionary.get(ExercisesEnum.SQUATS)!,
       reps: "1",
       weight: "0",
     },

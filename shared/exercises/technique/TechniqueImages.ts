@@ -1,4 +1,4 @@
-import { ExercisesEnum } from "./Exercises";
+import { ExercisesEnum } from "../../../types/Exercises/Exercises";
 
 import BICEPS_21 from "@/assets/exercises/BICEPS_21.gif";
 import BICEPS_SO_SHTANGOI_SKAMYA_SKOTTA from "@/assets/exercises/BICEPS_SO_SHTANGOI_SKAMYA_SKOTTA.gif";

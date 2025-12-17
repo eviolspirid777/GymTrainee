@@ -3,14 +3,14 @@ import { StyledButton } from "@/shared/components/StyledButton";
 import { StyledText } from "@/shared/components/StyledText";
 import {
   ExercisesEnum,
-  russianExercisesDictionary,
 } from "@/types/Exercises/Exercises";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Image, StyleSheet, View } from "react-native";
 
 import NoRecordsImage from "@/assets/graphics/Empty.png";
-import { techniqueDescriptions } from "@/types/Exercises/TechniqueDescription";
-import { techniqueImages } from "@/types/Exercises/TechniqueImages";
+import { techniqueDescriptions } from "@/shared/exercises/technique/TechniqueDescription";
+import { techniqueImages } from "@/shared/exercises/technique/TechniqueImages";
+import { russianExercisesDictionary } from "@/shared/exercises/technique/TechniqueRussification";
 
 const ExerciseInfo = () => {
   const router = useRouter();

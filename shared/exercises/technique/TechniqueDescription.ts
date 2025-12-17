@@ -1,4 +1,4 @@
-import { ExercisesEnum } from "./Exercises";
+import { ExercisesEnum } from "@/types/Exercises/Exercises";
 
 export const techniqueDescriptions = new Map<ExercisesEnum, string>([
   [
