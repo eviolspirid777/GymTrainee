@@ -22,13 +22,15 @@ import {
 
 export default function Index() {
   //TODO: УПражнения можно убрать в store...(Provider)
-  const [ exercieses ] = useState<StyledPickerData[]>(() => {
-    const _exercises = Object.entries(Object.fromEntries(russianExercisesDictionary));
-    return _exercises.map(([k,v]) => ({
+  const [exercieses] = useState<StyledPickerData[]>(() => {
+    const _exercises = Object.entries(
+      Object.fromEntries(russianExercisesDictionary)
+    );
+    return _exercises.map(([k, v]) => ({
       label: v,
-      value: k
-    }))
-  })
+      value: k,
+    }));
+  });
 
   const [addModalVisibile, setAddModalVisibile] = useState(false);
   const [editModalVisibile, setEditModalVisibile] = useState(false);
@@ -36,7 +38,7 @@ export default function Index() {
   const [recordToEdit, setRecordToEdit] = useState<RecordType>();
 
   const { records, addNewRecord, editRecord, deleteRecord } = useRecords();
-  const {addWeightAnalytic} = useWeightsAnalytic()
+  const { addWeightAnalytic } = useWeightsAnalytic();
 
   const isRecordsAvailable = records && records.length > 0;
 
@@ -49,34 +51,43 @@ export default function Index() {
   };
 
   const addAnalytic = async (edittedRecord: RecordType) => {
-    switch(edittedRecord.name) {
+    switch (edittedRecord.name) {
       case "Жим лежа": {
-        return await addWeightAnalytic({
-          date: new Date(),
-          type: WeightAnalyticsEnum.ZHIM_LEZHA,
-          weight: Number(edittedRecord.weight)
-        }, "zhimLezhaAnalytic")
+        return await addWeightAnalytic(
+          {
+            date: new Date(),
+            type: WeightAnalyticsEnum.ZHIM_LEZHA,
+            weight: Number(edittedRecord.weight),
+          },
+          "zhimLezhaAnalytic"
+        );
       }
       case "Становая тяга": {
-        return await addWeightAnalytic({
-          date: new Date(),
-          type: WeightAnalyticsEnum.STANOVAYA_TYAGA,
-          weight: Number(edittedRecord.weight)
-        }, "stanovayaTyagaAnalytics")
+        return await addWeightAnalytic(
+          {
+            date: new Date(),
+            type: WeightAnalyticsEnum.STANOVAYA_TYAGA,
+            weight: Number(edittedRecord.weight),
+          },
+          "stanovayaTyagaAnalytics"
+        );
       }
       case "Приседания со штангой": {
-        return await addWeightAnalytic({
-          date: new Date(),
-          type: WeightAnalyticsEnum.PRISEDANYA_SO_SHTANGOI,
-          weight: Number(edittedRecord.weight)
-        }, "prisedanyaSoShtangoiAnalytics")
+        return await addWeightAnalytic(
+          {
+            date: new Date(),
+            type: WeightAnalyticsEnum.PRISEDANYA_SO_SHTANGOI,
+            weight: Number(edittedRecord.weight),
+          },
+          "prisedanyaSoShtangoiAnalytics"
+        );
       }
     }
-  }
+  };
 
   const handleEditFinish = async (edittedRecord: RecordType) => {
     await editRecord(edittedRecord);
-    await addAnalytic(edittedRecord)
+    await addAnalytic(edittedRecord);
     setEditModalVisibile(false);
   };
 

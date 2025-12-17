@@ -2,6 +2,7 @@ import { COLORS } from "@/shared/colors/colors";
 import { StyledButton } from "@/shared/components/StyledButton";
 import { StyledText } from "@/shared/components/StyledText";
 import { useMaxWeight } from "@/shared/hooks/MaxWeights/useMaxWeight";
+import { useRecords } from "@/shared/hooks/Records/useRecords";
 import { Exercise } from "@/types/TrainingProgram/TrainingProgram";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useRouter } from "expo-router";
@@ -24,7 +25,38 @@ export const ExerciseComponent: FC<ExerciseComponentProps> = ({
     return <RepeatComponent repeat={item} />;
   };
 
-  const { maxWeight, loadMaxWeight } = useMaxWeight();
+  const { maxWeight } = useMaxWeight();
+
+  const { records } = useRecords();
+
+  const renderRecomendedWeight = () => {
+    const existRecord = records?.find((r) => r.name === exercise.name);
+    if (existRecord) {
+      const { reps: s_reps, weight: s_weight } = existRecord;
+      const weight = Number(s_weight);
+      const reps = Number(s_reps);
+
+      const e1RM = weight * (1 + 0.0333 * reps);
+      if (Array.isArray(exercise.reps)) {
+        return (
+          <StyledText
+            label={`Рек. вес: ${exercise.reps.map((er, i) =>
+              (e1RM / (1 + 0.0333 * er)).toFixed(0)
+            )}`}
+          />
+        );
+      } else if (typeof exercise.reps === "number") {
+        return (
+          <StyledText
+            label={`Рек. вес: ${(e1RM / (1 + 0.0333 * exercise.reps)).toFixed(
+              2
+            )}`}
+          />
+        );
+      }
+      return null;
+    }
+  };
 
   const renderRepeats = () => {
     if (Array.isArray(exercise.reps)) {
@@ -65,6 +97,7 @@ export const ExerciseComponent: FC<ExerciseComponentProps> = ({
             label={`Вес: ${exercise.weight(Number(maxWeight))?.toFixed(2)} кг`}
           />
         )}
+        {renderRecomendedWeight()}
         <StyledText label={`Подходов: ${exercise.count}`} />
         {renderRepeats()}
       </View>
