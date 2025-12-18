@@ -1,3 +1,5 @@
+import { ExerciseTag } from "../ExerciseTag/ExerciseTag";
+
 export enum ExercisesEnum {
   //PLECHI
   OVERHEAD_PRESS = "OverheadPress", //Жим над головой
@@ -52,3 +54,9 @@ export enum ExercisesEnum {
   TYAGA_NIZHNEGO_BLOCKA_OBRATNIM_HVATOM = "TYAGA_NIZHNEGO_BLOCKA_OBRATNIM_HVATOM", //Тяга нижнего блока обратным хватом
   TYAGA_GANTELEI_K_POYASU_V_NAKLONE = "TYAGA_GANTELEI_K_POYASU_V_NAKLONE", //Тяга гантелей к поясу в наклоне
 }
+
+export type ExerciseListItemType = {
+  name: string;
+  tag: ExerciseTag | undefined;
+  enum: ExercisesEnum;
+};
