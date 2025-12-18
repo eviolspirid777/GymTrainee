@@ -1,6 +1,8 @@
 export const COLORS = {
   PRIMARY_COLOR: "#222126",
   SECONDARY_COLOR: "#3ca1f8",
+  CARD_BG: "#2a2930",
+  INPUT_BG: "#333",
   TEXT_COLOR: "#fff",
   PLACEHOLDER_COLOR: "#999999",
   DANGER: "red",

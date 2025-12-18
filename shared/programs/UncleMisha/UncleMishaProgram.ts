@@ -4,6 +4,9 @@ import { TrainingProgram } from "@/types/TrainingProgram/TrainingProgram";
 export const uncleMishaTrainingProgram: TrainingProgram = {
   id: "Dyadya_Misha",
   name: "Дядя Миша (жим лежа)",
+  information: {
+    description: "Программа для увеличения силы в жиме лежа",
+  },
   trainingDays: [
     {
       trainingNumber: 1,

@@ -7,7 +7,7 @@ export type TrainingProgram = {
   results?: {
     passedTrainings: number;
   };
-  information?: {
+  information: {
     description: string;
   };
 };

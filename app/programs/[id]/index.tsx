@@ -10,10 +10,20 @@ import { StyleSheet, View } from "react-native";
 const Index = () => {
   const { id } = useLocalSearchParams();
 
+  const programId = Array.isArray(id) ? id[0] : id;
+
   const { programsData, addProgramsResult } = useProgramsResults();
-  const selectedProgram = programsData?.find((p) => p.id === id);
+  const selectedProgram = programsData?.find((p) => p.id === programId);
 
   const [selectedTrainingNumber, setSelectedTrainingNumber] = useState(0);
+
+  if (!selectedProgram) {
+    return (
+      <View style={styles.main}>
+        <StyledText label="Загрузка программы..." />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.main}>
@@ -22,7 +32,7 @@ const Index = () => {
         variant="header"
         style={styles.header}
       />
-      {selectedProgram?.trainingDays[selectedTrainingNumber] && (
+      {selectedProgram.trainingDays[selectedTrainingNumber] && (
         <TrainingSetComponent
           trainingSet={selectedProgram?.trainingDays[selectedTrainingNumber]}
           onCheckPress={(exerciseName, state, dayNumber) =>

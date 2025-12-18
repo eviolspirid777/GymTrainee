@@ -1,18 +1,25 @@
 import { COLORS } from "@/shared/colors/colors";
 import { StyledButton } from "@/shared/components/StyledButton";
 import { StyledText } from "@/shared/components/StyledText";
-import * as programs from "@/shared/programs";
 import { TrainingProgram } from "@/types/TrainingProgram/TrainingProgram";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { Image, StyleSheet, View } from "react-native";
+import { Dimensions, Image, StyleSheet, View } from "react-native";
 
 import NoRecordsImage from "@/assets/graphics/Empty.png";
+import { programsAtom } from "@/store/Programs/Programs";
+import { useAtom } from "jotai";
 
 const InformationLabel = () => {
+  const { width } = Dimensions.get("window");
+
   const router = useRouter();
   const { label } = useLocalSearchParams();
 
-  const selectedProgram = programs[label] as TrainingProgram;
+  const [programs] = useAtom(programsAtom);
+
+  const selectedProgram = programs.find(
+    (p) => p[0] === label
+  )?.[1] as TrainingProgram;
 
   const passedTrainings = selectedProgram.results?.passedTrainings ?? 0;
   const trainingDaysCount = selectedProgram.trainingDays.length;
@@ -26,11 +33,11 @@ const InformationLabel = () => {
           <Image
             source={NoRecordsImage}
             style={{
-              width: 300,
+              width: width,
               height: 300,
-              resizeMode: "contain",
               marginRight: 20,
             }}
+            resizeMode="contain"
           />
         )}
       </View>

@@ -1,9 +1,7 @@
 import { COLORS } from "@/shared/colors/colors";
 import { StyledButton } from "@/shared/components/StyledButton";
 import { StyledText } from "@/shared/components/StyledText";
-import {
-  ExercisesEnum,
-} from "@/types/Exercises/Exercises";
+import { ExercisesEnum } from "@/types/Exercises/Exercises";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Image, StyleSheet, View } from "react-native";
 
@@ -30,9 +28,9 @@ const ExerciseInfo = () => {
             style={{
               width: 300,
               height: 300,
-              resizeMode: "contain",
               marginRight: 20,
             }}
+            resizeMode="contain"
           />
         ) : (
           <Image
@@ -40,9 +38,9 @@ const ExerciseInfo = () => {
             style={{
               width: 300,
               height: 300,
-              resizeMode: "contain",
               marginRight: 20,
             }}
+            resizeMode="contain"
           />
         )}
         {techniqueDescription && (
@@ -83,7 +81,7 @@ const styles = StyleSheet.create({
     paddingInline: 20,
   },
   "main-block__technique__description": {
-    textAlign: "justify",
+    textAlign: "center",
     marginTop: 20,
   },
 });

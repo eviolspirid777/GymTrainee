@@ -7,10 +7,10 @@ import { LineChart } from "react-native-chart-kit";
 import { type LineChartData } from "react-native-chart-kit/dist/line-chart/LineChart";
 
 const Analytics = () => {
-  const {width: screenWidth, height: screenHeight} = Dimensions.get("window");
+  const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 
   const graphicWidth = screenWidth - 32;
-  const graphicHeight = (screenHeight - (300)) / 3
+  const graphicHeight = (screenHeight - 300) / 3;
 
   const { records } = useRecords();
 
@@ -49,12 +49,10 @@ const Analytics = () => {
   return (
     <View style={styles.container}>
       <StyledText label="Аналитика" variant="header" style={styles.header} />
-      <View style={
-        styles["container-data"]
-      }>
+      <View style={styles["container-data"]}>
         {/* <StyledText label="Силовые показатели" variant="subtitle"/> */}
         <View style={styles["container-data__item-block"]}>
-          <StyledText label="Жим лежа" variant="primary"/>
+          <StyledText label="Жим лежа" variant="primary" />
           <LineChart
             data={data}
             width={graphicWidth}
@@ -72,7 +70,7 @@ const Analytics = () => {
           />
         </View>
         <View style={styles["container-data__item-block"]}>
-          <StyledText label="Становая тяга"/>
+          <StyledText label="Становая тяга" />
           <LineChart
             data={data}
             width={graphicWidth}
@@ -90,7 +88,7 @@ const Analytics = () => {
           />
         </View>
         <View style={styles["container-data__item-block"]}>
-          <StyledText label="Приседания"/>
+          <StyledText label="Приседания" />
           <LineChart
             data={data}
             width={graphicWidth}
@@ -124,12 +122,12 @@ const styles = StyleSheet.create({
   "container-data": {
     alignItems: "center",
     justifyContent: "center",
-    gap: 20
+    gap: 20,
   },
   "container-data__item-block": {
     alignItems: "center",
     justifyContent: "center",
-    gap: 10
+    gap: 10,
   },
   header: {
     marginBottom: 20,

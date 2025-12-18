@@ -1,32 +1,63 @@
+import { programsAtom } from "@/store/Programs/Programs";
 import {
   Exercise,
   TrainingDay,
   TrainingProgram,
 } from "@/types/TrainingProgram/TrainingProgram";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 
-import * as programsFromFiles from "@/shared/programs";
-const programs = Object.entries(programsFromFiles);
+type ProgramsResultsStorage = {
+  [programId: TrainingProgram["id"]]: {
+    [trainingNumber: TrainingDay["trainingNumber"]]: {
+      [exerciseName: Exercise["name"]]: boolean;
+    };
+  };
+};
 
 export const useProgramsResults = () => {
   const [programsData, setProgramsData] = useState<TrainingProgram[]>();
+  const [programs] = useAtom(programsAtom);
 
   useEffect(() => {
-    loadProgramsResults();
+    syncProgramsWithResults();
   }, []);
 
-  const loadProgramsResults = async () => {
+  const readResultsFromStorage = async (): Promise<ProgramsResultsStorage> => {
     try {
       const programResults = await AsyncStorage.getItem("programsResults");
-      if (programResults !== null) {
-        const parsedProgramResults = await JSON.parse(programResults);
-        setProgramsData(parsedProgramResults);
-      } else {
-        setProgramsData(programs.map(([k, v]) => v));
-      }
+      if (!programResults) return {};
+      return JSON.parse(programResults) as ProgramsResultsStorage;
     } catch (error) {
-      console.error("Ошибка при загрузке веса:", error);
+      console.error("Ошибка при загрузке результатов программ:", error);
+      return {};
+    }
+  };
+
+  const syncProgramsWithResults = async () => {
+    try {
+      const basePrograms = programs.map(([_, program]) => program);
+      const results = await readResultsFromStorage();
+
+      const mergedPrograms = basePrograms.map((program) => ({
+        ...program,
+        trainingDays: program.trainingDays.map((day) => ({
+          ...day,
+          exercises: day.exercises.map((exercise) => {
+            const passed =
+              results[program.id]?.[day.trainingNumber]?.[exercise.name];
+            return {
+              ...exercise,
+              passed: passed ?? exercise.passed ?? false,
+            };
+          }),
+        })),
+      }));
+
+      setProgramsData(mergedPrograms);
+    } catch (error) {
+      console.error("Ошибка при объединении программ с результатами:", error);
     }
   };
 
@@ -37,31 +68,20 @@ export const useProgramsResults = () => {
     state: boolean
   ) => {
     try {
-      const programResults = await AsyncStorage.getItem("programsResults");
+      const results = await readResultsFromStorage();
 
-      let programsArray: TrainingProgram[];
-
-      if (programResults !== null) {
-        programsArray = JSON.parse(programResults);
-      } else {
-        // берём все программы из файлов (как в loadProgramsResults)
-        programsArray = programs.map(([_, program]) => program);
+      if (!results[trainingProgramId]) {
+        results[trainingProgramId] = {};
       }
-
-      const foundExercise = programsArray
-        .find((tp) => tp.id === trainingProgramId)
-        ?.trainingDays.find((td) => td.trainingNumber === trainingDayNumber)
-        ?.exercises.find((e) => e.name === exerciseName);
-
-      if (foundExercise) {
-        foundExercise.passed = state;
+      if (!results[trainingProgramId][trainingDayNumber]) {
+        results[trainingProgramId][trainingDayNumber] = {};
       }
+      results[trainingProgramId][trainingDayNumber][exerciseName] = !state;
 
-      const stringified = JSON.stringify(programsArray);
-      await AsyncStorage.setItem("programsResults", stringified);
-      setProgramsData(programsArray);
+      await AsyncStorage.setItem("programsResults", JSON.stringify(results));
+      await syncProgramsWithResults();
     } catch (error) {
-      console.error("Ошибка при сохранении веса:", error);
+      console.error("Ошибка при сохранении результатов программы:", error);
     }
   };
 

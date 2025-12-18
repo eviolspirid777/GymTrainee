@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
   },
   pressed: {
     opacity: 0.5,
+    transform: [{ scale: 0.99 }],
   },
   //type
   primary: {
