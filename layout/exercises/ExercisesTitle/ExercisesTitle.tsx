@@ -19,13 +19,12 @@ export const ExercisesTitle = () => {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    flex: 1,
     flexDirection: "column",
     justifyContent: "flex-start",
     gap: 5,
     alignItems: "flex-start",
-    paddingTop: PADDINGS.pTop - 50,
-    paddingBottom: PADDINGS.pBottom,
+    paddingTop: PADDINGS.pTop - 40,
+    paddingBottom: PADDINGS.pBottom - 5,
     paddingInline: PADDINGS.pInline,
   },
   description: {

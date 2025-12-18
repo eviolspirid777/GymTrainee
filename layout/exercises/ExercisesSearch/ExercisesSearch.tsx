@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   container: {
     zIndex: 99,
     position: "relative",
-    marginVertical: 10,
+    marginBottom: 10,
     height: 50,
     width: "95%",
   },

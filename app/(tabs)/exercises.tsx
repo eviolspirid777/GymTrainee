@@ -16,7 +16,7 @@ export default function Exercises() {
       <ExercisesTitle />
       <ExercisesSearch onSearch={setSearchText} />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <ExercisesList />
+        <ExercisesList searchText={searchText}/>
       </ScrollView>
     </View>
   );

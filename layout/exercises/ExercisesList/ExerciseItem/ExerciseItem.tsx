@@ -1,6 +1,7 @@
 import { COLORS } from "@/shared/colors/colors";
 import { StyledText } from "@/shared/components/StyledText";
 import { ExerciseListItemType } from "@/types/Exercises/Exercises";
+import { useRouter } from "expo-router";
 import { ChevronRight } from "lucide-react-native";
 import { FC } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
@@ -10,10 +11,12 @@ type ExerciseItemProps = {
 };
 
 export const ExerciseItem: FC<ExerciseItemProps> = ({ exercise }) => {
+  const router = useRouter();
+
   return (
-    <Pressable style={({ pressed }) => [pressed ? styles.pressed : null]}>
+    <Pressable style={({ pressed }) => [pressed ? styles.pressed : null]} onPress={() => router.push(`/programs/exercises/${exercise.enum}`)}>
       <View style={styles.container}>
-        <StyledText label={exercise.name} variant="primary" />
+        <StyledText style={styles.container__name} label={exercise.name} variant="primary" />
         <View style={styles["container__tags"]}>
           {exercise.tag && (
             <StyledText style={styles.tag} label={exercise.tag.toString()} />
@@ -35,15 +38,19 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.99 }],
   },
   container: {
-    height: 100,
     position: "relative",
     backgroundColor: COLORS.CARD_BG,
     borderRadius: 10,
-    width: "100%",
+    minWidth: "100%",
     flexDirection: "column",
     alignItems: "flex-start",
     justifyContent: "center",
-    gap: 10,
+    paddingLeft: 10,
+    paddingVertical: 10,
+    gap: 25,
+  },
+  container__name: {
+    maxWidth: "90%"
   },
   container__tags: {
     flexDirection: "row",

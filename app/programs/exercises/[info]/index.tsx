@@ -3,32 +3,42 @@ import { StyledButton } from "@/shared/components/StyledButton";
 import { StyledText } from "@/shared/components/StyledText";
 import { ExercisesEnum } from "@/types/Exercises/Exercises";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { Image, StyleSheet, View } from "react-native";
+import { Dimensions, Image, StyleSheet, View } from "react-native";
 
 import NoRecordsImage from "@/assets/graphics/Empty.png";
 import { techniqueDescriptions } from "@/shared/exercises/technique/TechniqueDescription";
 import { techniqueImages } from "@/shared/exercises/technique/TechniqueImages";
 import { russianExercisesDictionary } from "@/shared/exercises/technique/TechniqueRussification";
+import { PADDINGS } from "@/shared/paddings/Paddings";
+import { exercisesForListAtom } from "@/store/Exercises/Exercises";
+import { useAtom } from "jotai";
 
 const ExerciseInfo = () => {
   const router = useRouter();
   const { info } = useLocalSearchParams();
+  const {width} = Dimensions.get("window");
+
+  const [exercisesForList] = useAtom(exercisesForListAtom)
 
   const parsedInfoName = russianExercisesDictionary.get(info as ExercisesEnum);
   const techniqueImage = techniqueImages.get(info as ExercisesEnum);
   const techniqueDescription = techniqueDescriptions.get(info as ExercisesEnum);
+  const tag = exercisesForList.find(e => e.name === parsedInfoName)?.tag?.toString();
 
   return (
     <View style={styles.container}>
-      {parsedInfoName && <StyledText label={parsedInfoName} variant="header" />}
+      <StyledText label="Техника" variant="header"/>
+      {parsedInfoName && <StyledText label={parsedInfoName} variant="title" />}
+      {
+        tag && <StyledText style={styles.tag} label={tag} />
+      }
       <View style={styles["main-block"]}>
         {techniqueImage ? (
           <Image
             source={techniqueImage}
             style={{
-              width: 300,
+              width: width,
               height: 300,
-              marginRight: 20,
             }}
             resizeMode="contain"
           />
@@ -45,10 +55,11 @@ const ExerciseInfo = () => {
         )}
         {techniqueDescription && (
           <View style={styles["main-block__technique"]}>
-            <StyledText label="Техника" variant="subtitle" />
+            <StyledText label="Техника Выполнения" variant="title" />
             <StyledText
               label={techniqueDescription}
               style={styles["main-block__technique__description"]}
+              variant="subtitle"
             />
           </View>
         )}
@@ -68,6 +79,15 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
     alignItems: "center",
     justifyContent: "flex-start",
+    paddingInline: PADDINGS.pInline,
+    gap: 20,
+  },
+  tag: {
+    backgroundColor: "#2d3b4e",
+    color: COLORS.SECONDARY_COLOR,
+    borderRadius: 10,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
   },
   "main-block": {
     flex: 1,
@@ -77,7 +97,7 @@ const styles = StyleSheet.create({
   "main-block__technique": {
     marginVertical: 30,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     paddingInline: 20,
   },
   "main-block__technique__description": {
