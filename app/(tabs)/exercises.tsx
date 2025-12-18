@@ -31,6 +31,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: COLORS.PRIMARY_COLOR,
     paddingTop: PADDINGS.pTop,
-    paddingBottom: PADDINGS.pBottom,
   },
 });

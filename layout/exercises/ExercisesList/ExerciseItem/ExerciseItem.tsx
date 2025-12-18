@@ -58,6 +58,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     gap: 5,
   },
+  //TODO: Можно вынести tag в shared компоненту
+  //TODO: Border radius тоже можно вынести в shared компоненту
   tag: {
     backgroundColor: "#2d3b4e",
     color: COLORS.SECONDARY_COLOR,
