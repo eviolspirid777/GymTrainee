@@ -1,7 +1,32 @@
+import { russianExercisesDictionary } from "@/shared/exercises/technique/TechniqueRussification";
+import { ExercisesEnum } from "@/types/Exercises/Exercises";
 import { RecordType } from "@/types/RecordsType/RecordsType";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+
+const getBasedRecords = (): RecordType[] => {
+  return [
+    {
+      id: "zhim_lezha",
+      name: russianExercisesDictionary.get(ExercisesEnum.BENCH_PRESS)!,
+      reps: "1",
+      weight: "0",
+    },
+    {
+      id: "stanovaya_tyaga",
+      name: russianExercisesDictionary.get(ExercisesEnum.DEAD_LIFT)!,
+      reps: "1",
+      weight: "0",
+    },
+    {
+      id: "prisedanya_so_shtangoi",
+      name: russianExercisesDictionary.get(ExercisesEnum.SQUATS)!,
+      reps: "1",
+      weight: "0",
+    },
+  ];
+};
 
 export const useRecords = () => {
   const [records, setRecords] = useState<RecordType[]>();
@@ -13,10 +38,14 @@ export const useRecords = () => {
   const loadRecords = async () => {
     try {
       const savedRecords = await AsyncStorage.getItem("records");
-      if (savedRecords !== null) {
-        const parsedSavedRecords = JSON.parse(savedRecords) as RecordType[];
-        setRecords(parsedSavedRecords);
+
+      if (savedRecords === null) {
+        setRecords(getBasedRecords());
+        return;
       }
+
+      const parsedSavedRecords = JSON.parse(savedRecords) as RecordType[];
+      setRecords(parsedSavedRecords);
     } catch (error) {
       console.error("Ошибка при загрузке рекордов", error);
     }

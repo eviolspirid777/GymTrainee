@@ -1,10 +1,18 @@
+import { ExercisesEnum } from "../Exercises/Exercises";
+
 export type TrainingProgram = {
   id: string;
   name: string;
-  trainingSets: TrainingSet[];
+  trainingDays: TrainingDay[];
+  results?: {
+    passedTrainings: number;
+  };
+  information: {
+    description: string;
+  };
 };
 
-export type TrainingSet = {
+export type TrainingDay = {
   trainingNumber: number;
   exercises: Exercise[];
 };
@@ -16,4 +24,7 @@ export type Exercise = {
   count: number;
   //Повторения
   reps: number | number[] | "max";
+  //Завершенность упраженения
+  passed?: boolean;
+  type?: ExercisesEnum;
 };

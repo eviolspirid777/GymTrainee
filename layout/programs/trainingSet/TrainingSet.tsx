@@ -1,19 +1,31 @@
 import { StyledText } from "@/shared/components/StyledText";
-import {
-  Exercise,
-  TrainingSet as TrainingSetType,
-} from "@/types/TrainingProgram/TrainingProgram";
+import { Exercise, TrainingDay } from "@/types/TrainingProgram/TrainingProgram";
 import { FC } from "react";
 import { FlatList, ListRenderItemInfo, StyleSheet, View } from "react-native";
 import { ExerciseComponent } from "./Exercise/Exercise";
 
 type TrainingSetProps = {
-  trainingSet: TrainingSetType;
+  trainingSet: TrainingDay;
+  onCheckPress: (
+    exerciseName: Exercise["name"],
+    state: boolean,
+    trainingSetDay: TrainingDay["trainingNumber"]
+  ) => void;
 };
 
-export const TrainingSetComponent: FC<TrainingSetProps> = ({ trainingSet }) => {
+export const TrainingSetComponent: FC<TrainingSetProps> = ({
+  trainingSet,
+  onCheckPress,
+}) => {
   const renderExercise = ({ item }: ListRenderItemInfo<Exercise>) => {
-    return <ExerciseComponent exercise={item} />;
+    return (
+      <ExerciseComponent
+        exercise={item}
+        onCheckPress={(name, state) =>
+          onCheckPress(name, state, trainingSet.trainingNumber)
+        }
+      />
+    );
   };
 
   return (

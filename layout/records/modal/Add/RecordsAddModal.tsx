@@ -1,19 +1,26 @@
 import { COLORS } from "@/shared/colors/colors";
 import { StyledButton } from "@/shared/components/StyledButton";
+import { StyledPicker, StyledPickerData } from "@/shared/components/StyledPicker";
 import { StyledText } from "@/shared/components/StyledText";
 import { StyledTextInput } from "@/shared/components/StyledTextInput";
+import { russianExercisesDictionary } from "@/shared/exercises/technique/TechniqueRussification";
+import { ExercisesEnum } from "@/types/Exercises/Exercises";
 import { RecordType } from "@/types/RecordsType/RecordsType";
 import { FC, useState } from "react";
 import { Keyboard, Modal, StyleSheet, Vibration, View } from "react-native";
 
 type RecordsModalProps = {
   isModalVisible: boolean;
+  exercises: StyledPickerData[],
   onFinish: (newRecord: RecordType) => void;
+  onClose: () => void;
 };
 
 export const RecordsAddModal: FC<RecordsModalProps> = ({
   isModalVisible,
+  exercises,
   onFinish,
+  onClose,
 }) => {
   const [exercisesData, setExercisesData] = useState<RecordType>({
     name: "",
@@ -21,6 +28,15 @@ export const RecordsAddModal: FC<RecordsModalProps> = ({
     weight: "",
   });
   const [error, setError] = useState<string>();
+
+  const handleCloseModal = () => {
+    onClose();
+    setExercisesData({
+      name: "",
+      reps: "",
+      weight: "",
+    });
+  };
 
   const handleCloseRecordsModal = () => {
     if (!exercisesData.name || !exercisesData.reps || !exercisesData.weight) {
@@ -30,11 +46,7 @@ export const RecordsAddModal: FC<RecordsModalProps> = ({
 
     Keyboard.dismiss();
     onFinish(exercisesData);
-    setExercisesData({
-      name: "",
-      reps: "",
-      weight: "",
-    });
+    handleCloseModal();
     Vibration.vibrate(3);
   };
 
@@ -43,21 +55,25 @@ export const RecordsAddModal: FC<RecordsModalProps> = ({
     setError(undefined);
   };
 
+  const changeExerciseName = (val: ExercisesEnum) => {
+    const value = russianExercisesDictionary.get(val);
+    if(value) {
+      changeText(value, "name")
+    }
+  }
+
   return (
     <Modal
       animationType="slide"
       transparent={false}
       visible={isModalVisible}
-      onRequestClose={handleCloseRecordsModal}
+      onRequestClose={handleCloseModal}
     >
       <View style={styles.modal}>
         <View style={styles["modal-container"]}>
-          <StyledTextInput
-            placeholder="Название упражнения"
-            style={styles["text-input"]}
-            value={exercisesData.name}
-            onChangeText={(name) => changeText(name, "name")}
-          />
+          <StyledText label="Упражнение:" />
+          <StyledPicker data={exercises} onValueChange={v => changeExerciseName(v as ExercisesEnum)}/>
+          <StyledText label="Вес:" />
           <StyledTextInput
             keyboardType="numeric"
             placeholder="Вес (кг)"
@@ -65,6 +81,7 @@ export const RecordsAddModal: FC<RecordsModalProps> = ({
             value={exercisesData.weight}
             onChangeText={(weight) => changeText(weight, "weight")}
           />
+          <StyledText label="Кол-во раз:" />
           <StyledTextInput
             keyboardType="numeric"
             placeholder="Кол-во раз"
@@ -102,7 +119,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   "modal-container": {
-    minWidth: "90%",
+    width: "90%",
     gap: 20,
   },
   "text-input": {

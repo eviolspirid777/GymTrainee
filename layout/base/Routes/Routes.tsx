@@ -8,12 +8,22 @@ export const Routes = () => {
 
   return (
     <View style={styles.container}>
-      <StyledButton icon="trophy" onPress={() => router.push("/records")}>
-        <StyledText label="Рекорды" />
-      </StyledButton>
-      <StyledButton icon="list" onPress={() => router.push("/programs")}>
-        <StyledText label="Программы" />
-      </StyledButton>
+      <View style={styles["container-inner"]}>
+        <StyledButton
+          icon="area-chart"
+          onPress={() => router.push("/analytics")}
+        >
+          <StyledText label="Аналитика" />
+        </StyledButton>
+      </View>
+      <View style={styles["container-inner"]}>
+        <StyledButton icon="trophy" onPress={() => router.push("/records")}>
+          <StyledText label="Рекорды" />
+        </StyledButton>
+        <StyledButton icon="list" onPress={() => router.push("/programs")}>
+          <StyledText label="Программы" />
+        </StyledButton>
+      </View>
     </View>
   );
 };
@@ -21,10 +31,14 @@ export const Routes = () => {
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
-    bottom: 100,
+    bottom: 30,
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
+    flexDirection: "column",
+    gap: 20,
+  },
+  "container-inner": {
     flexDirection: "row",
     gap: 50,
   },
