@@ -1,3 +1,4 @@
+import { COLORS } from "@/shared/colors/colors";
 import { StyledText } from "@/shared/components/StyledText";
 import { Exercise, TrainingDay } from "@/types/TrainingProgram/TrainingProgram";
 import { FC } from "react";
@@ -30,11 +31,18 @@ export const TrainingSetComponent: FC<TrainingSetProps> = ({
 
   return (
     <View style={styles.container}>
-      <StyledText
-        label={`Тренировка ${trainingSet.trainingNumber}:`}
-        style={styles.header}
-        variant="subtitle"
-      />
+      <View style={styles.header__container}>
+        <StyledText
+          label={`Тренировка ${trainingSet.trainingNumber}`}
+          style={styles.header}
+          variant="title"
+        />
+        <StyledText
+          style={styles.header__container__description}
+          label={`${trainingSet.exercises.length} упражнений`}
+          variant="subtitle"
+        />
+      </View>
       <FlatList
         style={styles.list}
         data={trainingSet.exercises}
@@ -46,10 +54,15 @@ export const TrainingSetComponent: FC<TrainingSetProps> = ({
 };
 
 const styles = StyleSheet.create({
+  header__container: {
+    gap: 10,
+  },
   header: {
     width: "100%",
     textAlign: "center",
-    marginBottom: 20,
+  },
+  header__container__description: {
+    color: COLORS.PLACEHOLDER_COLOR,
   },
   container: {
     width: "100%",
