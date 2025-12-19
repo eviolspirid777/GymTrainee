@@ -44,8 +44,6 @@ const styles = StyleSheet.create({
   active: {
     backgroundColor: COLORS.SECONDARY_COLOR,
     color: COLORS.TEXT_COLOR,
-    borderColor: undefined,
-    borderStyle: undefined,
-    borderWidth: undefined,
+
   },
 });

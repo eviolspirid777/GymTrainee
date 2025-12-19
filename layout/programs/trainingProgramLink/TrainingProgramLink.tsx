@@ -74,6 +74,9 @@ export const TrainingProgramLink: FC<TrainingProgramLinkProps> = ({
     },
   });
 
+  const passedTrainingsCount = training.results?.passedTrainings ?? 0
+  const passedPercents = (passedTrainingsCount) / training.trainingDays.length;
+
   return (
     <Pressable
       onPress={onTrainingPress}
@@ -96,10 +99,10 @@ export const TrainingProgramLink: FC<TrainingProgramLinkProps> = ({
         </View>
         <View style={styles.progressContainer}>
           <View style={styles.progressBar}>
-            <View style={[styles.progressFill, { width: `${0.25 * 100}%` }]} />
+            <View style={[styles.progressFill, { width: `${passedPercents * 100}%` }]} />
           </View>
           <Text style={styles.progressText}>
-            {10} / {20} тренировок
+            {passedTrainingsCount} / {training.trainingDays.length} тренировок
           </Text>
         </View>
       </View>

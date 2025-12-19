@@ -56,6 +56,7 @@ export const TrainingSetComponent: FC<TrainingSetProps> = ({
 const styles = StyleSheet.create({
   header__container: {
     gap: 10,
+    marginBottom: 5,
   },
   header: {
     width: "100%",

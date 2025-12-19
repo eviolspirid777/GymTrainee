@@ -15,7 +15,7 @@ export const ProgramsHeader: FC<ProgramHeaderProps> = ({ programName }) => {
       <Pressable style={styles.header__back} onPress={() => router.back()}>
         <ArrowLeft size={25} color={COLORS.TEXT_COLOR} />
       </Pressable>
-      <StyledText label={programName} variant="header" />
+      <StyledText style={styles.header__title} label={programName} variant="header" />
     </View>
   );
 };
@@ -30,6 +30,9 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     borderBottomColor: COLORS.INPUT_BG,
     borderBottomWidth: 1,
+  },
+  header__title: {
+    maxWidth: "77%"
   },
   header__back: {
     position: "absolute",
