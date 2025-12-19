@@ -1,5 +1,6 @@
 import { COLORS } from "@/shared/colors/colors";
 import { StyledText } from "@/shared/components/StyledText";
+import { useResponsiveFont } from "@/shared/hooks/HELPERS/ResponsiveFont/useResponsiveFont";
 import { TrainingProgram } from "@/types/TrainingProgram/TrainingProgram";
 import { ChevronRight } from "lucide-react-native";
 import { FC } from "react";
@@ -14,6 +15,65 @@ export const TrainingProgramLink: FC<TrainingProgramLinkProps> = ({
   training,
   onTrainingPress,
 }) => {
+  const styles = StyleSheet.create({
+    "pressable-container": {
+      marginVertical: 10,
+      width: "100%",
+    },
+    pressed: {
+      opacity: 0.5,
+    },
+    container: {
+      gap: 20,
+      width: "100%",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "space-between",
+      padding: 20,
+      borderRadius: 10,
+      backgroundColor: COLORS.CARD_BG,
+    },
+    "container__header-block": {
+      width: "100%",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+    },
+    "container__header-block__title": {
+      maxWidth: "90%"
+    },
+    "container__description-block": {
+      width: "100%",
+    },
+    "container__description-block__description": {
+      width: "auto",
+    },
+    progressContainer: {
+      marginBottom: 16,
+      width: "100%",
+    },
+    progressBar: {
+      height: 6,
+      backgroundColor: COLORS.PRIMARY_COLOR,
+      borderRadius: 3,
+      overflow: "hidden",
+      marginBottom: 6,
+    },
+    progressFill: {
+      height: "100%",
+      backgroundColor: COLORS.SECONDARY_COLOR,
+    },
+    progressText: {
+      fontSize: useResponsiveFont(12),
+      color: COLORS.SECONDARY_COLOR,
+    },
+    icon: {
+      color: COLORS.TEXT_COLOR,
+      padding: 4,
+      alignSelf: "center",
+    },
+  });
+
   return (
     <Pressable
       onPress={onTrainingPress}
@@ -24,7 +84,7 @@ export const TrainingProgramLink: FC<TrainingProgramLinkProps> = ({
     >
       <View style={styles.container}>
         <View style={styles["container__header-block"]}>
-          <StyledText label={training.name} variant="header" />
+          <StyledText style={styles["container__header-block__title"]} label={training.name} variant="header" />
           <ChevronRight size={20} color={COLORS.SECONDARY_COLOR} />
         </View>
         <View style={styles["container__description-block"]}>
@@ -46,59 +106,3 @@ export const TrainingProgramLink: FC<TrainingProgramLinkProps> = ({
     </Pressable>
   );
 };
-
-const styles = StyleSheet.create({
-  "pressable-container": {
-    marginVertical: 10,
-    width: "100%",
-  },
-  pressed: {
-    opacity: 0.5,
-  },
-  container: {
-    gap: 20,
-    width: "100%",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: 20,
-    borderRadius: 10,
-    backgroundColor: COLORS.CARD_BG,
-  },
-  "container__header-block": {
-    width: "100%",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  "container__description-block": {
-    width: "100%",
-  },
-  "container__description-block__description": {
-    width: "auto",
-  },
-  progressContainer: {
-    marginBottom: 16,
-    width: "100%",
-  },
-  progressBar: {
-    height: 6,
-    backgroundColor: COLORS.PRIMARY_COLOR,
-    borderRadius: 3,
-    overflow: "hidden",
-    marginBottom: 6,
-  },
-  progressFill: {
-    height: "100%",
-    backgroundColor: COLORS.SECONDARY_COLOR,
-  },
-  progressText: {
-    fontSize: 12,
-    color: COLORS.SECONDARY_COLOR,
-  },
-  icon: {
-    color: COLORS.TEXT_COLOR,
-    padding: 4,
-    alignSelf: "center",
-  },
-});

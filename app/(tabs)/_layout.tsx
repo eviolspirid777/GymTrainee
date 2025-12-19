@@ -1,4 +1,5 @@
 import { COLORS } from "@/shared/colors/colors";
+import { useResponsiveFont } from "@/shared/hooks/HELPERS/ResponsiveFont/useResponsiveFont";
 import { Tabs } from "expo-router";
 
 import { Award, BookOpen, Dumbbell, GitGraphIcon } from "lucide-react-native";
@@ -11,15 +12,15 @@ export default function TabLayout() {
           headerShown: false,
           tabBarStyle: {
             backgroundColor: COLORS.PRIMARY_COLOR,
-            borderTopColor: "#333",
+            borderTopColor: COLORS.INPUT_BG,
             borderTopWidth: 1,
-            height: 60,
+            height: 77,
             paddingBottom: 8,
           },
           tabBarActiveTintColor: COLORS.SECONDARY_COLOR,
           tabBarInactiveTintColor: COLORS.PLACEHOLDER_COLOR,
           tabBarLabelStyle: {
-            fontSize: 12,
+            fontSize: useResponsiveFont(12),
             fontWeight: "600",
           },
         }}

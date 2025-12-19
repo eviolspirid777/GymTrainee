@@ -3,7 +3,7 @@ import { TrainingProgram } from "@/types/TrainingProgram/TrainingProgram";
 
 export const muravevTrainingProgram: TrainingProgram = {
   id: "Muravev_Training_Program",
-  name: "Муравьев (жим лежа)",
+  name: "Тренировочная программа №1 (жим лежа)",
   information: {
     description: "Программа, чтобы пробить мертвую точку в жиме лежа",
   },
