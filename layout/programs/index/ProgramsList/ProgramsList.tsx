@@ -1,14 +1,14 @@
 import { StyledText } from "@/shared/components/StyledText";
-import { programsAtom } from "@/store/Programs/Programs";
+import { useProgramsResults } from "@/shared/hooks/ProgramsResults/useProgramsResults";
 import { useRouter } from "expo-router";
-import { useAtom } from "jotai";
 import { StyleSheet, View } from "react-native";
 import { TrainingProgramLink } from "../../trainingProgramLink/TrainingProgramLink";
 
 export const ProgramsList = () => {
   const router = useRouter();
 
-  const [programsArray] = useAtom(programsAtom);
+  // const [programsArray] = useAtom(programsAtom);
+  const { programsData } = useProgramsResults();
 
   return (
     <View style={styles.container}>
@@ -17,7 +17,7 @@ export const ProgramsList = () => {
         variant="header"
         style={styles.header}
       />
-      {programsArray.map(([label, program], key) => (
+      {programsData?.map((program, key) => (
         <TrainingProgramLink
           key={key}
           training={program}

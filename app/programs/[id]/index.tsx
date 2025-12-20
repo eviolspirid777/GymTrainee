@@ -14,7 +14,7 @@ const Index = () => {
 
   const programId = Array.isArray(id) ? id[0] : id;
 
-  const { programsData, addProgramsResult } = useProgramsResults();
+  const { programsData } = useProgramsResults();
   const selectedProgram = programsData?.find((p) => p.id === programId);
 
   const [selectedTrainingNumber, setSelectedTrainingNumber] = useState(0);

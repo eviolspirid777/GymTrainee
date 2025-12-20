@@ -19,7 +19,7 @@ export type TrainingDay = {
 
 export type Exercise = {
   name: string;
-  weight?: (maxWeight: number) => void | number;
+  maxWeightCoef?: number;
   //Подходы
   count: number;
   //Повторения

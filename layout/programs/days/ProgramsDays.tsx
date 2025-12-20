@@ -36,9 +36,9 @@ export const ProgramsDays: FC<ProgramsDaysProps> = ({
 const styles = StyleSheet.create({
   scrollView: {
     maxHeight: 50,
-    paddingInline: 5,
   },
   container: {
+    paddingInline: 5,
     width: "100%",
     flexDirection: "row",
     gap: 10,

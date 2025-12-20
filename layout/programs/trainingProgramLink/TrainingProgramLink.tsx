@@ -3,7 +3,7 @@ import { StyledText } from "@/shared/components/StyledText";
 import { useResponsiveFont } from "@/shared/hooks/HELPERS/ResponsiveFont/useResponsiveFont";
 import { TrainingProgram } from "@/types/TrainingProgram/TrainingProgram";
 import { ChevronRight } from "lucide-react-native";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 type TrainingProgramLinkProps = {
@@ -40,7 +40,7 @@ export const TrainingProgramLink: FC<TrainingProgramLinkProps> = ({
       justifyContent: "space-between",
     },
     "container__header-block__title": {
-      maxWidth: "90%"
+      maxWidth: "90%",
     },
     "container__description-block": {
       width: "100%",
@@ -73,9 +73,20 @@ export const TrainingProgramLink: FC<TrainingProgramLinkProps> = ({
       alignSelf: "center",
     },
   });
+  const [passedTrainingsCount, setPassedTrainingCount] = useState(0);
 
-  const passedTrainingsCount = training.results?.passedTrainings ?? 0
-  const passedPercents = (passedTrainingsCount) / training.trainingDays.length;
+  useEffect(() => {
+    let tempPassedTrainingsCount = 0;
+
+    training.trainingDays.forEach((td) => {
+      if (td.exercises.every((e) => e.passed)) {
+        tempPassedTrainingsCount += 1;
+      }
+    });
+
+    setPassedTrainingCount(tempPassedTrainingsCount);
+  }, [training]);
+  const passedPercents = passedTrainingsCount / training.trainingDays.length;
 
   return (
     <Pressable
@@ -87,7 +98,11 @@ export const TrainingProgramLink: FC<TrainingProgramLinkProps> = ({
     >
       <View style={styles.container}>
         <View style={styles["container__header-block"]}>
-          <StyledText style={styles["container__header-block__title"]} label={training.name} variant="header" />
+          <StyledText
+            style={styles["container__header-block__title"]}
+            label={training.name}
+            variant="header"
+          />
           <ChevronRight size={20} color={COLORS.SECONDARY_COLOR} />
         </View>
         <View style={styles["container__description-block"]}>
@@ -99,9 +114,24 @@ export const TrainingProgramLink: FC<TrainingProgramLinkProps> = ({
         </View>
         <View style={styles.progressContainer}>
           <View style={styles.progressBar}>
-            <View style={[styles.progressFill, { width: `${passedPercents * 100}%` }]} />
+            <View
+              style={[
+                styles.progressFill,
+                { width: `${passedPercents * 100}%` },
+                passedTrainingsCount === training.trainingDays.length
+                  ? { backgroundColor: COLORS.ACCEPT }
+                  : null,
+              ]}
+            />
           </View>
-          <Text style={styles.progressText}>
+          <Text
+            style={[
+              styles.progressText,
+              passedTrainingsCount === training.trainingDays.length
+                ? { color: COLORS.ACCEPT }
+                : null,
+            ]}
+          >
             {passedTrainingsCount} / {training.trainingDays.length} тренировок
           </Text>
         </View>

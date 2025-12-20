@@ -13,7 +13,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим Лежа (65 %)",
-          weight: (maxWeight) => maxWeight * 0.65,
+          maxWeightCoef: 0.65,
           passed: false,
           reps: 10,
           count: 3,
@@ -61,7 +61,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим Лежа (75 %)",
-          weight: (maxWeight) => maxWeight * 0.75,
+          maxWeightCoef: 0.75,
           passed: false,
           reps: 5,
           count: 6,
@@ -109,7 +109,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим Лежа (85 %)",
-          weight: (maxWeight) => maxWeight * 0.85,
+          maxWeightCoef: 0.85,
           passed: false,
           reps: 3,
           count: 10,
@@ -157,7 +157,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим Лежа (65% + 5кг)",
-          weight: (maxWeight) => maxWeight * 0.65 + 5,
+          maxWeightCoef: 0.65 + 5,
           passed: false,
           reps: 3,
           count: 10,
@@ -205,7 +205,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим Лежа (75% + 5кг)",
-          weight: (maxWeight) => maxWeight * 0.75 + 5,
+          maxWeightCoef: 0.75 + 5,
           passed: false,
           reps: 6,
           count: 5,
@@ -253,7 +253,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим Лежа (85% + 5кг)",
-          weight: (maxWeight) => maxWeight * 0.85 + 5,
+          maxWeightCoef: 0.85 + 5,
           count: 10,
           type: ExercisesEnum.BENCH_PRESS,
           passed: false,
@@ -301,7 +301,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим Лежа (65% + 10кг)",
-          weight: (maxWeight) => maxWeight * 0.65 + 10,
+          maxWeightCoef: 0.65 + 10,
           count: 3,
           type: ExercisesEnum.BENCH_PRESS,
           passed: false,
@@ -349,7 +349,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим Лежа (75% + 10кг)",
-          weight: (maxWeight) => maxWeight * 0.75 + 5,
+          maxWeightCoef: 0.75 + 5,
           count: 6,
           type: ExercisesEnum.BENCH_PRESS,
           passed: false,
@@ -389,7 +389,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим Лежа (85% + 10кг)",
-          weight: (maxWeight) => maxWeight * 0.85 + 5,
+          maxWeightCoef: 0.85 + 5,
           count: 10,
           type: ExercisesEnum.BENCH_PRESS,
           passed: false,
@@ -498,7 +498,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим Лежа (70%)",
-          weight: (maxWeight) => maxWeight * 0.7,
+          maxWeightCoef: 0.7,
           count: 4,
           type: ExercisesEnum.BENCH_PRESS,
           passed: false,
@@ -560,7 +560,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
       exercises: [
         {
           name: "Жим Лежа (50%)",
-          weight: (maxWeight) => maxWeight * 0.5,
+          maxWeightCoef: 0.5,
           count: 1,
           type: ExercisesEnum.BENCH_PRESS,
           passed: false,
@@ -568,7 +568,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
         },
         {
           name: "Жим Лежа (60%)",
-          weight: (maxWeight) => maxWeight * 0.6,
+          maxWeightCoef: 0.6,
           count: 1,
           type: ExercisesEnum.BENCH_PRESS,
           passed: false,
@@ -576,7 +576,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
         },
         {
           name: "Жим Лежа (70%)",
-          weight: (maxWeight) => maxWeight * 0.7,
+          maxWeightCoef: 0.7,
           count: 1,
           type: ExercisesEnum.BENCH_PRESS,
           passed: false,
@@ -584,7 +584,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
         },
         {
           name: "Жим Лежа (80%)",
-          weight: (maxWeight) => maxWeight * 0.8,
+          maxWeightCoef: 0.8,
           count: 1,
           type: ExercisesEnum.BENCH_PRESS,
           passed: false,
@@ -592,7 +592,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
         },
         {
           name: "Жим Лежа (90%)",
-          weight: (maxWeight) => maxWeight * 0.9,
+          maxWeightCoef: 0.9,
           count: 1,
           type: ExercisesEnum.BENCH_PRESS,
           passed: false,
@@ -600,7 +600,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
         },
         {
           name: "Жим Лежа (100%)",
-          weight: (maxWeight) => maxWeight * 1,
+          maxWeightCoef: 1,
           count: 1,
           type: ExercisesEnum.BENCH_PRESS,
           passed: false,
@@ -608,7 +608,7 @@ export const uncleMishaTrainingProgram: TrainingProgram = {
         },
         {
           name: "Жим Лежа (105%)",
-          weight: (maxWeight) => maxWeight * 1.05,
+          maxWeightCoef: 1.05,
           count: 1,
           type: ExercisesEnum.BENCH_PRESS,
           passed: false,

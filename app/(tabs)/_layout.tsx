@@ -4,6 +4,8 @@ import { Tabs } from "expo-router";
 
 import { Award, BookOpen, Dumbbell, GitGraphIcon } from "lucide-react-native";
 
+import Toast from "react-native-toast-message";
+
 export default function TabLayout() {
   return (
     <>
@@ -62,6 +64,7 @@ export default function TabLayout() {
           }}
         />
       </Tabs>
+      <Toast />
     </>
   );
 }

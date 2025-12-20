@@ -23,72 +23,71 @@ export const RecordComponent: FC<RecordProps> = ({
     "prisedanya_so_shtangoi",
   ].includes(record.id ?? "");
 
-
-const styles = StyleSheet.create({
-  pressed: {
-    opacity: 0.5,
-    transform: [{ scale: 0.99 }],
-  },
-  recordCard: {
-    backgroundColor: COLORS.PRIMARY_COLOR,
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderColor: "#333",
-  },
-  recordHeader: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 16,
-    gap: 12,
-  },
-  actions: {
-    flexDirection: "row",
-    gap: 20,
-  },
-  recordIconContainer: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    backgroundColor: "rgba(60, 161, 248, 0.15)",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  recordInfo: {
-    flex: 1,
-  },
-  recordExercise: {
-    color: COLORS.TEXT_COLOR,
-    marginBottom: 2,
-  },
-  recordDate: {
-    fontSize: useResponsiveFont(13),
-    color: COLORS.PLACEHOLDER_COLOR,
-  },
-  recordStats: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  statItem: {
-    flex: 1,
-    alignItems: "center",
-  },
-  statValue: {
-    color: COLORS.SECONDARY_COLOR,
-    marginBottom: 4,
-  },
-  statLabel: {
-    color: COLORS.PLACEHOLDER_COLOR,
-    textTransform: "uppercase",
-    letterSpacing: 0.5,
-  },
-  statDivider: {
-    width: 1,
-    height: 40,
-    backgroundColor: "#333",
-  }
-});
+  const styles = StyleSheet.create({
+    pressed: {
+      opacity: 0.5,
+      transform: [{ scale: 0.99 }],
+    },
+    recordCard: {
+      backgroundColor: COLORS.PRIMARY_COLOR,
+      borderRadius: 12,
+      padding: 16,
+      marginBottom: 12,
+      borderWidth: 1,
+      borderColor: "#333",
+    },
+    recordHeader: {
+      flexDirection: "row",
+      alignItems: "center",
+      marginBottom: 16,
+      gap: 12,
+    },
+    actions: {
+      flexDirection: "row",
+      gap: 20,
+    },
+    recordIconContainer: {
+      width: 44,
+      height: 44,
+      borderRadius: 22,
+      backgroundColor: "rgba(60, 161, 248, 0.15)",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    recordInfo: {
+      flex: 1,
+    },
+    recordExercise: {
+      color: COLORS.TEXT_COLOR,
+      marginBottom: 2,
+    },
+    recordDate: {
+      fontSize: useResponsiveFont(13),
+      color: COLORS.PLACEHOLDER_COLOR,
+    },
+    recordStats: {
+      flexDirection: "row",
+      alignItems: "center",
+    },
+    statItem: {
+      flex: 1,
+      alignItems: "center",
+    },
+    statValue: {
+      color: COLORS.SECONDARY_COLOR,
+      marginBottom: 4,
+    },
+    statLabel: {
+      color: COLORS.PLACEHOLDER_COLOR,
+      textTransform: "uppercase",
+      letterSpacing: 0.5,
+    },
+    statDivider: {
+      width: 1,
+      height: 40,
+      backgroundColor: "#333",
+    },
+  });
 
   return (
     <Pressable
@@ -106,7 +105,12 @@ const styles = StyleSheet.create({
               variant="header"
               label={`${record.name}`}
             />
-            <StyledText style={styles.recordDate} label={`${record.id}`} />
+            {record.date && (
+              <StyledText
+                style={styles.recordDate}
+                label={`${record.date.format("DD.MM.YYYY")}`}
+              />
+            )}
           </View>
           {isDeleteAvailable && (
             <View style={styles.actions}>

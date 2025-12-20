@@ -5,11 +5,21 @@ import { StyledTextInput } from "@/shared/components/StyledTextInput";
 import { useMaxWeight } from "@/shared/hooks/MaxWeights/useMaxWeight";
 import { Keyboard, StyleSheet, View } from "react-native";
 
+import Toast from "react-native-toast-message";
+
 export const MaxWeight = () => {
   const { maxWeight, setMaxWeight, saveMaxWeight } = useMaxWeight();
 
-  const submitMaxWeight = () => {
-    saveMaxWeight();
+  const submitMaxWeight = async () => {
+    await saveMaxWeight();
+    Toast.show({
+      type: "success",
+      text1: "Тренировка сохранена!",
+      text2: "Ваш прогресс обновлен",
+      position: "top",
+      visibilityTime: 3000,
+      autoHide: true,
+    });
     Keyboard.dismiss();
   };
   return (

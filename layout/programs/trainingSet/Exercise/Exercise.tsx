@@ -21,7 +21,7 @@ export const ExerciseComponent: FC<ExerciseComponentProps> = ({
 }) => {
   const router = useRouter();
 
-  const renderRepeat = ({ item, index }: ListRenderItemInfo<number>) => {
+  const renderRepeat = ({ item }: ListRenderItemInfo<number>) => {
     return <RepeatComponent repeat={item} />;
   };
 
@@ -107,11 +107,13 @@ export const ExerciseComponent: FC<ExerciseComponentProps> = ({
         )}
       </View>
       <View style={styles.container__body}>
-        {exercise.weight && (
+        {exercise.maxWeightCoef && maxWeight && (
           <View style={styles.container__body__item}>
             <StyledText label="Вес:" variant="ruby" />
             <StyledText
-              label={`${exercise.weight(Number(maxWeight))?.toFixed(2)} кг`}
+              label={`${(exercise.maxWeightCoef * Number(maxWeight))?.toFixed(
+                2
+              )} кг`}
             />
           </View>
         )}

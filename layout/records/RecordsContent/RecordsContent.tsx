@@ -7,6 +7,7 @@ import { useWeightsAnalytic } from "@/shared/hooks/WeightsAnalytic/useWeightsAna
 import { exercisesAtom } from "@/store/Exercises/Exercises";
 import { RecordType } from "@/types/RecordsType/RecordsType";
 import { WeightAnalyticsEnum } from "@/types/WeightAnalytics/WeightAnalytics";
+import dayjs from "dayjs";
 import { useAtom } from "jotai";
 import { FC, useImperativeHandle, useState } from "react";
 import { RecordsAddModal } from "../modal/Add/RecordsAddModal";
@@ -50,7 +51,7 @@ export const RecordsContent: FC<RecordsContentProps> = ({ ref }) => {
       case "Жим лежа": {
         return await addWeightAnalytic(
           {
-            date: new Date(),
+            date: dayjs(),
             type: WeightAnalyticsEnum.ZHIM_LEZHA,
             weight: Number(edittedRecord.weight),
           },
@@ -60,7 +61,7 @@ export const RecordsContent: FC<RecordsContentProps> = ({ ref }) => {
       case "Становая тяга": {
         return await addWeightAnalytic(
           {
-            date: new Date(),
+            date: dayjs(),
             type: WeightAnalyticsEnum.STANOVAYA_TYAGA,
             weight: Number(edittedRecord.weight),
           },
@@ -70,7 +71,7 @@ export const RecordsContent: FC<RecordsContentProps> = ({ ref }) => {
       case "Приседания со штангой": {
         return await addWeightAnalytic(
           {
-            date: new Date(),
+            date: dayjs(),
             type: WeightAnalyticsEnum.PRISEDANYA_SO_SHTANGOI,
             weight: Number(edittedRecord.weight),
           },

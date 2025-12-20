@@ -2,6 +2,7 @@ import { russianExercisesDictionary } from "@/shared/exercises/technique/Techniq
 import { ExercisesEnum } from "@/types/Exercises/Exercises";
 import { RecordType } from "@/types/RecordsType/RecordsType";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
@@ -9,18 +10,21 @@ const getBasedRecords = (): RecordType[] => {
   return [
     {
       id: "zhim_lezha",
+      date: dayjs(),
       name: russianExercisesDictionary.get(ExercisesEnum.BENCH_PRESS)!,
       reps: "1",
       weight: "0",
     },
     {
       id: "stanovaya_tyaga",
+      date: dayjs(),
       name: russianExercisesDictionary.get(ExercisesEnum.DEAD_LIFT)!,
       reps: "1",
       weight: "0",
     },
     {
       id: "prisedanya_so_shtangoi",
+      date: dayjs(),
       name: russianExercisesDictionary.get(ExercisesEnum.SQUATS)!,
       reps: "1",
       weight: "0",
@@ -63,7 +67,7 @@ export const useRecords = () => {
   };
 
   const addNewRecord = async (record: RecordType) => {
-    const recordWithId: RecordType = { ...record, id: uuidv4() };
+    const recordWithId: RecordType = { ...record, id: uuidv4(), date: dayjs() };
     try {
       const newRecords =
         records && records.length > 0
@@ -94,7 +98,7 @@ export const useRecords = () => {
     try {
       const newRecords = records?.map((record) => {
         if (record.id === edittedRecord.id) {
-          return edittedRecord;
+          return { ...edittedRecord, date: dayjs() };
         }
         return record;
       });
