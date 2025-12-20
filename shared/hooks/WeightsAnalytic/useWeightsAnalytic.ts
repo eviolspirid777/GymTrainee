@@ -3,13 +3,14 @@ import {
   WeightAnalyticsEnum,
 } from "@/types/WeightAnalytics/WeightAnalytics";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 
 const setBasedWeightAnalytics = <T extends WeightAnalyticsEnum>(
   type: T
 ): WeightAnalytics<T> => {
   return {
-    date: new Date(),
+    date: dayjs(),
     type: type,
     weight: 0,
   };
