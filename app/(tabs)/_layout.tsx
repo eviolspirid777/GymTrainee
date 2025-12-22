@@ -1,12 +1,27 @@
 import { COLORS } from "@/shared/colors/colors";
 import { useResponsiveFont } from "@/shared/hooks/HELPERS/ResponsiveFont/useResponsiveFont";
 import { Tabs } from "expo-router";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Award, BookOpen, Dumbbell, GitGraphIcon } from "lucide-react-native";
 
+import { Platform } from "react-native";
 import Toast from "react-native-toast-message";
 
 export default function TabLayout() {
+  const insets = useSafeAreaInsets();
+
+  const getTabBarHeight = () => {
+    const baseHeight = 53;
+    const bottomInset = insets.bottom;
+
+    if (Platform.OS === "android" && bottomInset > 0) {
+      return baseHeight + bottomInset;
+    }
+
+    return baseHeight;
+  };
+
   return (
     <>
       <Tabs
@@ -16,14 +31,17 @@ export default function TabLayout() {
             backgroundColor: COLORS.PRIMARY_COLOR,
             borderTopColor: COLORS.INPUT_BG,
             borderTopWidth: 1,
-            height: 77,
-            paddingBottom: 8,
+            height: getTabBarHeight(),
+            paddingBottom: insets.bottom > 0 ? insets.bottom : 8,
+            // height: 77,
+            // paddingBottom: 8,
           },
           tabBarActiveTintColor: COLORS.SECONDARY_COLOR,
           tabBarInactiveTintColor: COLORS.PLACEHOLDER_COLOR,
           tabBarLabelStyle: {
             fontSize: useResponsiveFont(12),
             fontWeight: "600",
+            marginBottom: Platform.OS === "android" ? 4 : 0,
           },
         }}
       >
