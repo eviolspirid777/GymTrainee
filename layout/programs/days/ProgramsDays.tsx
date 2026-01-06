@@ -44,15 +44,16 @@ export const ProgramsDays: FC<ProgramsDaysProps> = ({
       showsHorizontalScrollIndicator={false}
     >
       <View style={styles.container}>
-        {days.wholeDays.map((_, index) => (
+        {days.wholeDays.map((trainingNumber, index) => (
           <View
             key={index}
             onLayout={handleItemLayout(index)}
           >
             <ProgramDay
-              day={index + 1}
+              day={trainingNumber}
+              dayIndex={index}
               isActive={selectedDay === index}
-              isPassed={days.passedDays?.includes(index + 1)}
+              isPassed={days.passedDays?.includes(trainingNumber)}
               onDaySelect={onDaySelect}
             />
           </View>

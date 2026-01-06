@@ -6,6 +6,7 @@ import { Pressable, StyleSheet, View } from "react-native";
 
 type ProgramDayProps = {
   day: number;
+  dayIndex: number;
   isActive: boolean;
   isPassed?: boolean;
   onDaySelect: (day: number) => void;
@@ -13,12 +14,13 @@ type ProgramDayProps = {
 
 export const ProgramDay: FC<ProgramDayProps> = ({
   day,
+  dayIndex,
   isActive,
   isPassed,
   onDaySelect,
 }) => {
   return (
-    <Pressable onPress={onDaySelect.bind(null, day - 1)}>
+    <Pressable onPress={onDaySelect.bind(null, dayIndex)}>
       <View style={[styles.container, isActive ? styles.active : null, isPassed ? styles.passed : null]}>
         {isPassed && <FontAwesome name="check" size={20} color={COLORS.ACCEPT} />}
         <StyledText
