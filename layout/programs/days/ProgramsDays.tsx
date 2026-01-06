@@ -1,9 +1,12 @@
-import { FC } from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { FC, useEffect, useRef, useState } from "react";
+import { LayoutChangeEvent, ScrollView, StyleSheet, View } from "react-native";
 import { ProgramDay } from "./day/ProgramDay";
 
 type ProgramsDaysProps = {
-  days: number[];
+  days: {
+    wholeDays: number[],
+    passedDays?: number[],
+  };
   selectedDay: number;
   onDaySelect: (day: number) => void;
 };
@@ -13,20 +16,46 @@ export const ProgramsDays: FC<ProgramsDaysProps> = ({
   selectedDay,
   onDaySelect,
 }) => {
+  const scrollViewRef = useRef<ScrollView>(null);
+  const [itemPositions, setItemPositions] = useState<{ [key: number]: number }>({});
+
+  useEffect(() => {
+    if (itemPositions[selectedDay] !== undefined && scrollViewRef.current) {
+      scrollViewRef.current.scrollTo({
+        x: itemPositions[selectedDay] - 40,
+        animated: true,
+      });
+    }
+  }, [selectedDay, itemPositions]);
+
+  const handleItemLayout = (index: number) => (event: LayoutChangeEvent) => {
+    const { x } = event.nativeEvent.layout;
+    setItemPositions((prev) => ({
+      ...prev,
+      [index]: x,
+    }));
+  };
+
   return (
     <ScrollView
+      ref={scrollViewRef}
       horizontal
       style={styles.scrollView}
       showsHorizontalScrollIndicator={false}
     >
       <View style={styles.container}>
-        {days.map((_, index) => (
-          <ProgramDay
+        {days.wholeDays.map((_, index) => (
+          <View
             key={index}
-            day={index + 1}
-            isActive={selectedDay === index}
-            onDaySelect={onDaySelect}
-          />
+            onLayout={handleItemLayout(index)}
+          >
+            <ProgramDay
+              day={index + 1}
+              isActive={selectedDay === index}
+              isPassed={days.passedDays?.includes(index + 1)}
+              onDaySelect={onDaySelect}
+            />
+          </View>
         ))}
       </View>
     </ScrollView>

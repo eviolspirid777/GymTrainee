@@ -5,3 +5,5 @@ import { atom } from "jotai";
 export const programsAtom = atom<[string, TrainingProgram][]>(
   Object.entries(programs)
 );
+
+export const programsResultsAtom = atom<TrainingProgram[] | undefined>(undefined);

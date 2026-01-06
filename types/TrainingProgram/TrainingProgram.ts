@@ -4,9 +4,6 @@ export type TrainingProgram = {
   id: string;
   name: string;
   trainingDays: TrainingDay[];
-  results?: {
-    passedTrainings: number;
-  };
   information: {
     description: string;
   };

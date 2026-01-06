@@ -1,4 +1,4 @@
-import { programsAtom } from "@/store/Programs/Programs";
+import { programsAtom, programsResultsAtom } from "@/store/Programs/Programs";
 import {
   Exercise,
   TrainingDay,
@@ -6,17 +6,17 @@ import {
 } from "@/types/TrainingProgram/TrainingProgram";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useAtom } from "jotai";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 type ProgramsResultsStorage = TrainingProgram[];
 
 export const useProgramsResults = () => {
-  const [programsData, setProgramsData] = useState<TrainingProgram[]>();
+  const [programsData, setProgramsData] = useAtom(programsResultsAtom);
   const [programs] = useAtom(programsAtom);
 
   useEffect(() => {
     syncProgramsWithResults();
-  });
+  }, []);
 
   const readResultsFromStorage = async () => {
     try {
@@ -60,22 +60,33 @@ export const useProgramsResults = () => {
     state: boolean
   ) => {
     try {
-      const results = await readResultsFromStorage();
+      if (!programsData) return;
 
-      const foundProgram = results?.find((p) => p.id === trainingProgramId);
-      const foundProgramTrainingDay = foundProgram?.trainingDays.find(
-        (d) => d.trainingNumber === trainingDayNumber
-      );
-      const foundExercise = foundProgramTrainingDay?.exercises.find(
-        (e) => e.name === exerciseName
-      );
+      const updatedResults = programsData.map((program) => {
+        if (program.id !== trainingProgramId) {
+          return program;
+        }
 
-      if (foundExercise) {
-        foundExercise.passed = state;
+        const updatedTrainingDays = program.trainingDays.map((day) => {
+          if (day.trainingNumber !== trainingDayNumber) {
+            return day;
+          }
 
-        await AsyncStorage.setItem("programsResults", JSON.stringify(results));
-        await syncProgramsWithResults();
-      }
+          const updatedExercises = day.exercises.map((exercise) => {
+            if (exercise.name === exerciseName) {
+              return { ...exercise, passed: state };
+            }
+            return exercise;
+          });
+
+          return { ...day, exercises: updatedExercises };
+        });
+
+        return { ...program, trainingDays: updatedTrainingDays };
+      });
+
+      await AsyncStorage.setItem("programsResults", JSON.stringify(updatedResults));
+      setProgramsData(updatedResults);
     } catch (error) {
       console.error("Ошибка при сохранении результатов программы:", error);
     }

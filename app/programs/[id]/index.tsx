@@ -6,7 +6,7 @@ import { StyledText } from "@/shared/components/StyledText";
 import { useProgramsResults } from "@/shared/hooks/ProgramsResults/useProgramsResults";
 import { PADDINGS } from "@/shared/paddings/Paddings";
 import { useLocalSearchParams } from "expo-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 
 const Index = () => {
@@ -18,6 +18,14 @@ const Index = () => {
   const selectedProgram = programsData?.find((p) => p.id === programId);
 
   const [selectedTrainingNumber, setSelectedTrainingNumber] = useState(0);
+  useEffect(() => {
+    setSelectedTrainingNumber(selectedProgram?.trainingDays.reduce((acc, val, index) => {
+      if (val.exercises.every(e => e.passed)) {
+        return index + 1;
+      }
+      return acc
+    }, 0) ?? 0)
+  }, [])
 
   if (!selectedProgram) {
     return (
@@ -29,9 +37,12 @@ const Index = () => {
 
   return (
     <View style={styles.main}>
-      <ProgramsHeader programName={selectedProgram?.name ?? ""} />
+      <ProgramsHeader programName={selectedProgram.name} />
       <ProgramsDays
-        days={selectedProgram.trainingDays.map((el) => el.trainingNumber)}
+        days={{
+          wholeDays: selectedProgram.trainingDays.map((el) => el.trainingNumber),
+          passedDays: selectedProgram.trainingDays.filter((el) => el.exercises.every(e => e.passed)).map((el) => el.trainingNumber),
+        }}
         selectedDay={selectedTrainingNumber}
         onDaySelect={setSelectedTrainingNumber}
       />

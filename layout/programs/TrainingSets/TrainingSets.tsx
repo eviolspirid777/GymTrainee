@@ -21,8 +21,8 @@ export const TrainingSets: FC<TrainingSetsProps> = ({ training }) => {
       {
         <TrainingSetComponent
           trainingSet={training}
-          onCheckPress={(exerciseName, state, dayNumber) =>
-            addProgramsResult(
+          onCheckPress={async (exerciseName, state, dayNumber) =>
+            await addProgramsResult(
               selectedProgram?.id ?? "",
               dayNumber,
               exerciseName,
