@@ -19,7 +19,7 @@ export const ProgramDay: FC<ProgramDayProps> = ({
 }) => {
   return (
     <Pressable onPress={onDaySelect.bind(null, day - 1)}>
-      <View style={[styles.container, isActive ? styles.active : null]}>
+      <View style={[styles.container, isActive ? styles.active : null, isPassed ? styles.passed : null]}>
         {isPassed && <FontAwesome name="check" size={20} color={COLORS.ACCEPT} />}
         <StyledText
           label={`День ${day}`}
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     color: COLORS.TEXT_COLOR,
   },
   passed: {
-    color: COLORS.ACCEPT
+    color: COLORS.ACCEPT,
+    borderColor: COLORS.ACCEPT
   }
 });
