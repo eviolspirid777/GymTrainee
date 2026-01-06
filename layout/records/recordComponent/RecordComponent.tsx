@@ -108,7 +108,7 @@ export const RecordComponent: FC<RecordProps> = ({
             {record.date && (
               <StyledText
                 style={styles.recordDate}
-                label={`${record.date.format("DD.MM.YYYY")}`}
+                label={`${record.date}`}
               />
             )}
           </View>

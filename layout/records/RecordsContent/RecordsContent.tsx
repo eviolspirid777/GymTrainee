@@ -46,6 +46,8 @@ export const RecordsContent: FC<RecordsContentProps> = ({ ref }) => {
 
   const isRecordsAvailable = records && records.length > 0;
 
+  const exerciesesToAdd = exercieses.filter(e => !records?.some(r => r.id === e.value))
+
   const addAnalytic = async (edittedRecord: RecordType) => {
     switch (edittedRecord.name) {
       case "Жим лежа": {
@@ -133,7 +135,7 @@ export const RecordsContent: FC<RecordsContentProps> = ({ ref }) => {
 
       <RecordsAddModal
         isModalVisible={addModalVisibile}
-        exercises={exercieses}
+        exercises={exerciesesToAdd}
         onFinish={handleAddModalFinish}
         onClose={closeAddModal}
       />

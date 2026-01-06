@@ -57,8 +57,9 @@ export const RecordsAddModal: FC<RecordsModalProps> = ({
 
   const changeExerciseName = (val: ExercisesEnum) => {
     const value = russianExercisesDictionary.get(val);
-    if(value) {
-      changeText(value, "name")
+    if (value) {
+      changeText(value, "name");
+      changeText(val, "id");
     }
   }
 
@@ -72,7 +73,7 @@ export const RecordsAddModal: FC<RecordsModalProps> = ({
       <View style={styles.modal}>
         <View style={styles["modal-container"]}>
           <StyledText label="Упражнение:" />
-          <StyledPicker data={exercises} onValueChange={v => changeExerciseName(v as ExercisesEnum)}/>
+          <StyledPicker data={exercises} onValueChange={v => changeExerciseName(v as ExercisesEnum)} />
           <StyledText label="Вес:" />
           <StyledTextInput
             keyboardType="numeric"
