@@ -1,24 +1,14 @@
-import { apiClient } from "@/api/ApiClient";
 import { Header } from "@/layout/base/Header/Header";
 import { MaxWeight } from "@/layout/programs/index/MaxWeight/MaxWeight";
 import { ProgramsList } from "@/layout/programs/index/ProgramsList/ProgramsList";
 import { ProgramsTitle } from "@/layout/programs/index/ProgramsTitle/ProgramsTitle";
 import { COLORS } from "@/shared/colors/colors";
+import { useGetPrograms } from "@/shared/hooks/API/useGetPrograms/useGetPrograms";
 import { PADDINGS } from "@/shared/paddings/Paddings";
-import { useEffect } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 
 const Index = () => {
-
-  useEffect(() => {
-    const test = async () => {
-      console.log("HERE")
-      const res = await apiClient.getPrograms()
-      console.log(res)
-    }
-
-    test()
-  }, [])
+  useGetPrograms();
 
   return (
     <View style={styles.main}>

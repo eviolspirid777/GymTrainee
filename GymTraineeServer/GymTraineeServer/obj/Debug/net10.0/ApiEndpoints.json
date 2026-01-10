@@ -1,0 +1,54 @@
+[
+  {
+    "ContainingType": "GymTraineeServer.Controllers.GymTraineeController",
+    "Method": "AddExercise",
+    "RelativePath": "api/v1/GymTrainee/exercises/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "exercise",
+        "Type": "GymTraineeServer.Models.Database.Exercise",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GymTraineeServer.Controllers.GymTraineeController",
+    "Method": "GetPrograms",
+    "RelativePath": "api/v1/GymTrainee/programs",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GymTraineeServer.Models.Programs.IProgram, GymTraineeServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GymTraineeServer.Controllers.GymTraineeController",
+    "Method": "AddProgram",
+    "RelativePath": "api/v1/GymTrainee/programs/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "program",
+        "Type": "GymTraineeServer.Models.Database.Program",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

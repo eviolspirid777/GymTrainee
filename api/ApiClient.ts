@@ -1,3 +1,4 @@
+import { TrainingProgram } from '@/types/TrainingProgram/TrainingProgram';
 import axios, { AxiosInstance } from 'axios';
 
 class ApiClient {
@@ -13,7 +14,7 @@ class ApiClient {
   }
 
   async getPrograms() {
-    const response = await this.client.get("/gymtrainee/programs");
+    const response = await this.client.get<TrainingProgram[]>("/gymtrainee/programs");
     return response.data;
   }
 }
