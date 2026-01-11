@@ -3,6 +3,7 @@ using System;
 using GymTraineeServer.DbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GymTraineeServer.Migrations
 {
     [DbContext(typeof(PostgreSQLDbContext))]
-    partial class PostgreSQLDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260111151024_migration_add_image_and_exercise")]
+    partial class migration_add_image_and_exercise
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

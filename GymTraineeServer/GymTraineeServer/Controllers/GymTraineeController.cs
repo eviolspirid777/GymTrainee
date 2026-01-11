@@ -33,6 +33,7 @@ namespace GymTraineeServer.Controllers
         public async Task<IActionResult> AddExercise([FromBody] Exercise exercise)
         {
             await _postgreDbContext.Exercises.AddAsync(exercise);
+            await _postgreDbContext.SaveChangesAsync();
             return Ok();
         }
     }

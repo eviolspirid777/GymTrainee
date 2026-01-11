@@ -8,7 +8,7 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<PostgreSQLDbContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("default"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("default_macos"));
 });
 
 var app = builder.Build();
@@ -24,4 +24,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run("http://*:5000");
+// app.Run("http://*:5000");
+app.Run();
