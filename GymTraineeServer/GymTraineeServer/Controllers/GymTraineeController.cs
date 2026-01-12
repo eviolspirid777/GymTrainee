@@ -1,6 +1,7 @@
 ﻿using GymTraineeServer.DbContext;
 using GymTraineeServer.Models.Database;
 using GymTraineeServer.Models.Programs;
+using GymTraineeServer.Models.Requests;
 using GymTraineeServer.Programs.Muravev;
 using GymTraineeServer.Programs.UncleMisha;
 using Microsoft.AspNetCore.Http;
@@ -23,7 +24,7 @@ namespace GymTraineeServer.Controllers
         }
 
         [HttpPost("programs/add")]
-        public async Task<IActionResult> AddProgram([FromBody] Models.Database.Program program)
+        public async Task<IActionResult> AddProgram([FromBody] ProgramAddRequest program)
         {
             await _postgreDbContext.Programs.AddAsync(program);
             return Ok();
