@@ -31,6 +31,14 @@ namespace GymTraineeServer.DbContext
 
                 b.HasIndex(t => new { t.TrainingDayId, t.ExerciseId }).IsUnique();
             });
+
+            modelBuilder.Entity<Exercise>()
+                .Property(e => e.Type)
+                .HasConversion<string>();
+
+            modelBuilder.Entity<Exercise>()
+                .Property(e => e.Tag)
+                .HasConversion<string>();
         }
 
         public DbSet<Models.Database.TrainingDay> TrainingDays { get; set; } = null!;

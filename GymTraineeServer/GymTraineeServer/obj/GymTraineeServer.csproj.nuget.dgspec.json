@@ -1,26 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/eviolspirid/Projects/GymTrainee/GymTraineeServer/GymTraineeServer/GymTraineeServer.csproj": {}
+    "D:\\MyDocs\\projects_own\\GymTrainee\\GymTraineeServer\\GymTraineeServer\\GymTraineeServer.csproj": {}
   },
   "projects": {
-    "/Users/eviolspirid/Projects/GymTrainee/GymTraineeServer/GymTraineeServer/GymTraineeServer.csproj": {
+    "D:\\MyDocs\\projects_own\\GymTrainee\\GymTraineeServer\\GymTraineeServer\\GymTraineeServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/eviolspirid/Projects/GymTrainee/GymTraineeServer/GymTraineeServer/GymTraineeServer.csproj",
+        "projectUniqueName": "D:\\MyDocs\\projects_own\\GymTrainee\\GymTraineeServer\\GymTraineeServer\\GymTraineeServer.csproj",
         "projectName": "GymTraineeServer",
-        "projectPath": "/Users/eviolspirid/Projects/GymTrainee/GymTraineeServer/GymTraineeServer/GymTraineeServer.csproj",
-        "packagesPath": "/Users/eviolspirid/.nuget/packages/",
-        "outputPath": "/Users/eviolspirid/Projects/GymTrainee/GymTraineeServer/GymTraineeServer/obj/",
+        "projectPath": "D:\\MyDocs\\projects_own\\GymTrainee\\GymTraineeServer\\GymTraineeServer\\GymTraineeServer.csproj",
+        "packagesPath": "C:\\Users\\misyrin\\.nuget\\packages\\",
+        "outputPath": "D:\\MyDocs\\projects_own\\GymTrainee\\GymTraineeServer\\GymTraineeServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/eviolspirid/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\misyrin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -93,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.101/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

@@ -6,6 +6,7 @@ using GymTraineeServer.Programs.Muravev;
 using GymTraineeServer.Programs.UncleMisha;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace GymTraineeServer.Controllers
 {
@@ -24,14 +25,14 @@ namespace GymTraineeServer.Controllers
         }
 
         [HttpPost("programs/add")]
-        public async Task<IActionResult> AddProgram([FromBody] ProgramAddRequest program)
+        public async Task<IActionResult> AddProgram()
         {
-            await _postgreDbContext.Programs.AddAsync(program);
+            await _postgreDbContext.SaveChangesAsync();
             return Ok();
         }
 
         [HttpPost("exercises/add")]
-        public async Task<IActionResult> AddExercise([FromBody] Exercise exercise)
+        public async Task<IActionResult> AddExercise([FromBody] Models.Database.Exercise exercise)
         {
             await _postgreDbContext.Exercises.AddAsync(exercise);
             await _postgreDbContext.SaveChangesAsync();

@@ -8,7 +8,7 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<PostgreSQLDbContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("default_macos"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("default"));
 });
 
 var app = builder.Build();

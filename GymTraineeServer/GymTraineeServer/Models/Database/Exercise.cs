@@ -9,7 +9,8 @@ namespace GymTraineeServer.Models.Database
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
-        public byte[]? Image { get; set; }
+        //TODO: VKCloudStorage??
+        public string? ImageUrl { get; set; }
         public ExerciseTypeEnum Type { get; set; }
         public ExerciseTagEnum Tag { get; set; }
         public List<TrainingDayToExercise>? TrainingDayToExercise { get; set; } = new();
