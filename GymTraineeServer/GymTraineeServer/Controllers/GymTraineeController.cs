@@ -18,10 +18,34 @@ namespace GymTraineeServer.Controllers
         private readonly PostgreSQLDbContext _postgreDbContext = postgreDbContext;
 
         [HttpGet("programs")]
-        public List<IProgram> GetPrograms()
+        public async Task<IActionResult> GetPrograms()
         {
-            var programs = new List<IProgram>([new UncleMisha(), new MuravevProgram()]);
-            return programs;
+            var programs = await _postgreDbContext
+                .Programs
+                .AsNoTracking()
+                .Include(p => p.TrainigDays)
+                .ThenInclude(td => td.Exercises)
+                .Select(p => new
+                {
+                    p.Id,
+                    p.Name,
+                    p.Description,
+                    TrainingDays = p.TrainigDays.Select(td => new
+                    {
+                        td.TrainingNumber,
+                        Exercises = td.Exercises.Select(e => new
+                        {
+                            e.MaxWeightCoef,
+                            e.Count,
+                            e.Reps,
+                            e.Exercise.Name,
+                            e.Exercise.Tag
+                        })
+                    })
+                })
+                .ToListAsync();
+
+            return Ok(programs);
         }
 
         [HttpPost("programs/add")]

@@ -6,7 +6,6 @@ namespace GymTraineeServer.DbContext
     public class PostgreSQLDbContext: Microsoft.EntityFrameworkCore.DbContext
     {
         public PostgreSQLDbContext(DbContextOptions options) : base(options) { }
-        //TODO: Создать миграцию
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
