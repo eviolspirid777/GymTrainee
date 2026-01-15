@@ -4,6 +4,7 @@ using GymTraineeServer.Models.Programs;
 using GymTraineeServer.Models.Requests;
 using GymTraineeServer.Programs.Muravev;
 using GymTraineeServer.Programs.UncleMisha;
+using GymTraineeServer.Utils.Mappers.ProgramMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -25,24 +26,27 @@ namespace GymTraineeServer.Controllers
                 .AsNoTracking()
                 .Include(p => p.TrainigDays)
                 .ThenInclude(td => td.Exercises)
-                .Select(p => new
-                {
-                    p.Id,
-                    p.Name,
-                    p.Description,
-                    TrainingDays = p.TrainigDays.Select(td => new
-                    {
-                        td.TrainingNumber,
-                        Exercises = td.Exercises.Select(e => new
-                        {
-                            e.MaxWeightCoef,
-                            e.Count,
-                            e.Reps,
-                            e.Exercise.Name,
-                            e.Exercise.Tag
-                        })
-                    })
-                })
+                .ThenInclude(tde => tde.Exercise)
+                //.Select(p => new
+                //{
+                //    p.Id,
+                //    p.Name,
+                //    p.Description,
+                //    TrainingDays = p.TrainigDays.Select(td => new
+                //    {
+                //        td.TrainingNumber,
+                //        Exercises = td.Exercises.Select(e => new
+                //        {
+                //            e.Exercise.Name,
+                //            e.MaxWeightCoef,
+                //            e.Count,
+                //            e.Reps,
+                //            e.Passed,
+                //            e.Exercise.Type
+                //        })
+                //    })
+                //})
+                .Select(p => ProgramMapper.MapProgramToProgramDTO(p))
                 .ToListAsync();
 
             return Ok(programs);

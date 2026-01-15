@@ -538,3 +538,5 @@ D:\MyDocs\projects_own\GymTrainee\GymTraineeServer\GymTraineeServer\obj\Debug\ne
 D:\MyDocs\projects_own\GymTrainee\GymTraineeServer\GymTraineeServer\obj\Debug\net10.0\GymTrain.286F0FF6.Up2Date
 D:\MyDocs\projects_own\GymTrainee\GymTraineeServer\GymTraineeServer\obj\Debug\net10.0\GymTraineeServer.genruntimeconfig.cache
 D:\MyDocs\projects_own\GymTrainee\GymTraineeServer\GymTraineeServer\obj\Debug\net10.0\ref\GymTraineeServer.dll
+D:\MyDocs\projects_own\GymTrainee\GymTraineeServer\GymTraineeServer\bin\Debug\net10.0\Riok.Mapperly.Abstractions.dll
+D:\MyDocs\projects_own\GymTrainee\GymTraineeServer\GymTraineeServer\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
