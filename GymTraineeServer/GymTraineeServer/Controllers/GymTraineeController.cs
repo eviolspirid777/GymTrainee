@@ -1,11 +1,7 @@
-﻿using GymTraineeServer.DbContext;
-using GymTraineeServer.Models.Database;
-using GymTraineeServer.Models.Programs;
-using GymTraineeServer.Models.Requests;
-using GymTraineeServer.Programs.Muravev;
-using GymTraineeServer.Programs.UncleMisha;
+﻿using Google.Protobuf;
+using GymTraineeServer.DbContext;
+using GymTraineeServer.Shared.Protos;
 using GymTraineeServer.Utils.Mappers.ProgramMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,9 +10,11 @@ namespace GymTraineeServer.Controllers
     [Route("api/v1/[controller]")]
     [ApiController]
     public class GymTraineeController(
-        PostgreSQLDbContext postgreDbContext) : ControllerBase
+        PostgreSQLDbContext postgreDbContext,
+        ImageStorage.ImageStorageClient imageStorageClient) : ControllerBase
     {
         private readonly PostgreSQLDbContext _postgreDbContext = postgreDbContext;
+        private readonly ImageStorage.ImageStorageClient _imageStorageClient = imageStorageClient;
 
         [HttpGet("programs")]
         public async Task<IActionResult> GetPrograms()
@@ -27,25 +25,6 @@ namespace GymTraineeServer.Controllers
                 .Include(p => p.TrainigDays)
                 .ThenInclude(td => td.Exercises)
                 .ThenInclude(tde => tde.Exercise)
-                //.Select(p => new
-                //{
-                //    p.Id,
-                //    p.Name,
-                //    p.Description,
-                //    TrainingDays = p.TrainigDays.Select(td => new
-                //    {
-                //        td.TrainingNumber,
-                //        Exercises = td.Exercises.Select(e => new
-                //        {
-                //            e.Exercise.Name,
-                //            e.MaxWeightCoef,
-                //            e.Count,
-                //            e.Reps,
-                //            e.Passed,
-                //            e.Exercise.Type
-                //        })
-                //    })
-                //})
                 .Select(p => ProgramMapper.MapProgramToProgramDTO(p))
                 .ToListAsync();
 
@@ -66,5 +45,52 @@ namespace GymTraineeServer.Controllers
             await _postgreDbContext.SaveChangesAsync();
             return Ok();
         }
+
+        #region ImageAdd
+        [HttpPost("exercises/{exerciseId}/image")]
+        public async Task<IActionResult> AddImage(
+            [FromRoute] string exerciseId,
+            [FromForm] string fileName,
+            [FromForm] IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("File is required");
+
+            using var memoryStream = new MemoryStream();
+            await file.CopyToAsync(memoryStream);
+            var fileBytes = memoryStream.ToArray();
+
+            var response = await _imageStorageClient.UploadFileAsync(new ()
+            {
+                FileName = fileName,
+                Stream = ByteString.CopyFrom(fileBytes)
+            });
+
+            var exercise = await _postgreDbContext.Exercises.FindAsync(exerciseId);
+            if (exercise != null)
+            {
+                exercise.ImageUrl = response.ImageUrl;
+                await _postgreDbContext.SaveChangesAsync();
+            }
+
+            return Ok(new { imageUrl = response.ImageUrl });
+        }
+        [HttpDelete("exercises/{exerciseId}/{fileName}")]
+        public async Task<IActionResult> DeleteImage(
+            [FromRoute] Guid exerciseId,
+            [FromRoute] string fileName
+        )
+        {
+            await _imageStorageClient.DeleteFileAsync(new () { FileName = fileName });
+            var exercise = await _postgreDbContext.Exercises.FindAsync(exerciseId);
+            if(exercise != null)
+            {
+                exercise.ImageUrl = null;
+                await _postgreDbContext.SaveChangesAsync();
+                return Ok();
+            }
+            return BadRequest();
+        }
+        #endregion
     }
 }

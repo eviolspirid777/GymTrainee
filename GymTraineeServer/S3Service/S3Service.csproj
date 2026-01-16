@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-S3Service-5709cad6-a692-4bc9-b68a-467721d9f8fe</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<Protobuf Include="../Protos/image_storage.proto" GrpcServices="Server" >
+		<Link>Protos/image_storage.proto</Link>
+	</Protobuf>
+    <PackageReference Include="Amazon.S3" Version="0.35.0" />
+    <PackageReference Include="AWSSDK.S3" Version="4.0.17.2" />
+    <PackageReference Include="AWSSDK.Transfer" Version="4.0.5.6" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.76.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.2" />
+  </ItemGroup>
+</Project>

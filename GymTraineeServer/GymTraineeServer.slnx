@@ -1,3 +1,7 @@
 <Solution>
+  <Folder Name="/Protos/">
+    <File Path="Protos/image_storage.proto" />
+  </Folder>
   <Project Path="GymTraineeServer/GymTraineeServer.csproj" />
+  <Project Path="S3Service/S3Service.csproj" Id="72788de1-0eba-4d91-b977-34c7cc0611e3" />
 </Solution>

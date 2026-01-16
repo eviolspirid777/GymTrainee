@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Новый профиль",
+    "Projects": [
+      {
+        "Path": "GymTraineeServer\\GymTraineeServer.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "S3Service\\S3Service.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

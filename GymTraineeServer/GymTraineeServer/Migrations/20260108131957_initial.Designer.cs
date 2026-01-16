@@ -13,7 +13,9 @@ namespace GymTraineeServer.Migrations
 {
     [DbContext(typeof(PostgreSQLDbContext))]
     [Migration("20260108131957_initial")]
+#pragma warning disable CS8981 // Имя типа содержит только строчные символы ASCII. Такие имена могут резервироваться для языка.
     partial class initial
+#pragma warning restore CS8981 // Имя типа содержит только строчные символы ASCII. Такие имена могут резервироваться для языка.
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

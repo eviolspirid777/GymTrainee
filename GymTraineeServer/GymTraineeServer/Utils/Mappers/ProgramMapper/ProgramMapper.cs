@@ -12,6 +12,8 @@ namespace GymTraineeServer.Utils.Mappers.ProgramMapper
     {
         [MapProperty(nameof(Models.Database.Program.TrainigDays), nameof(ProgramDTO.TrainingDays))]
         public static partial ProgramDTO MapProgramToProgramDTO(Models.Database.Program program);
+        [MapperIgnoreSource(nameof(TrainingDay.Id))]
+        [MapperIgnoreSource(nameof(TrainingDay.Id))]
         private static partial TrainingDayDTO MapTrainingDayToTrainingDayDTO(Models.Database.TrainingDay trainingDay);
 
         [MapEnum(EnumMappingStrategy.ByName)]

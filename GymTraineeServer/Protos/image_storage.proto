@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option csharp_namespace = "GymTraineeServer.Shared.Protos";
+
+service ImageStorage {
+	rpc UploadFile (UploadFileRequest) returns (UploadFileResponse);
+	rpc GetFile (GetFileRequest) returns (GetFileResponse);
+	rpc DeleteFile (DeleteFileRequest) returns (DeleteFileResponse);
+}
+
+message UploadFileRequest {
+	bytes stream = 1;
+	string fileName = 2;
+}
+
+message UploadFileResponse {
+	string imageUrl = 1;
+}
+
+message GetFileRequest {
+	string fileName = 1;
+}
+
+message GetFileResponse {
+	bytes data = 1;
+}
+
+message DeleteFileRequest {
+	string fileName = 1;
+}
+
+message DeleteFileResponse {
+	bool success = 1;
+}
