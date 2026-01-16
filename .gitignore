@@ -44,3 +44,16 @@ app-example
 # generated native folders
 /ios
 /android
+
+/GymTraineeServer/.vs
+/GymTraineeServer/.vs/*
+
+/GymTraineeServer/GymTraineeServer/bin
+/GymTraineeServer/GymTraineeServer/bin/*
+/GymTraineeServer/GymTraineeServer/obj
+/GymTraineeServer/GymTraineeServer/obj/*
+
+/GymTraineeServer/S3Service/bin
+/GymTraineeServer/S3Service/bin/*
+/GymTraineeServer/S3Service/obj
+/GymTraineeServer/S3Service/obj/*
